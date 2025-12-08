@@ -82,10 +82,7 @@ const UserManage = () => {
                                     style={{
                                         backgroundColor: '#1a1a1a',
                                         border: '1px solid #333',
-                                        color: 'white',
-                                        '::placeholder': {
-                                            color: 'white'
-                                        }
+                                        color: 'white'
                                     }}
                                 />
                             </InputGroup>
@@ -192,6 +189,12 @@ const UserManage = () => {
                     </Row>
                 </Container>
             </div>
+
+            <style jsx>{`
+                input::placeholder {
+                    color: #888 !important;
+                }
+            `}</style>
         </div>
     );
 };
