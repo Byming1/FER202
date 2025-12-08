@@ -59,7 +59,7 @@ const UserManage = () => {
                             </InputGroup>
                         </Col>
                         <Col xs="auto">
-                            <Button style={{ backgroundColor: '#E50914', color: 'white' }}>
+                            <Button style={{ backgroundColor: '#E50914', color: 'white', border: 'none' }}>
                                 + Add New User
                             </Button>
                         </Col>
@@ -78,10 +78,8 @@ const UserManage = () => {
                                     </div>
                                     <div>
                                         <Button variant="outline-secondary" size="sm" className="me-2">
+                                            <i className="bi bi-funnel-fill" style={{ marginRight: '5px' }}></i>
                                             Filter
-                                        </Button>
-                                        <Button variant="outline-secondary" size="sm">
-                                            Export
                                         </Button>
                                     </div>
                                 </div>
@@ -159,7 +157,7 @@ const UserManage = () => {
                                     </div>
                                     <div>
                                         <Button variant="outline-secondary" size="sm" className="me-2">Previous</Button>
-                                        <Button style={{ backgroundColor: '#E50914', color: 'white' }} size="sm" className="me-2">1</Button>
+                                        <Button style={{ backgroundColor: '#E50914', color: 'white', border: 'none' }} size="sm" className="me-2">1</Button>
                                         <Button variant="outline-secondary" size="sm" className="me-2">2</Button>
                                         <Button variant="outline-secondary" size="sm" className="me-2">3</Button>
                                         <span className="me-2">...</span>
