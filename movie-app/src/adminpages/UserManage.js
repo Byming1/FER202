@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Table, Form, Button, Badge, InputGroup } from 'react-bootstrap';
 import { instance } from '../axios/Axios';
+import AdminSidebar from './AdminSidebar';
 
 const UserManage = () => {
     const [users, setUsers] = useState([]);
@@ -33,38 +34,7 @@ const UserManage = () => {
 
     return (
         <div style={{ backgroundColor: '#0a0a0a', minHeight: '100vh', color: 'white' }}>
-            <div style={{
-                position: 'fixed',
-                left: 0,
-                top: 0,
-                width: '200px',
-                height: '100vh',
-                backgroundColor: '#000',
-                padding: '20px'
-            }}>
-                <h5 style={{ color: '#E50914', marginBottom: '30px' }}>ADMIN PANEL</h5>
-                <div style={{ marginBottom: '10px', padding: '10px', cursor: 'pointer' }}>
-                    Dashboard
-                </div>
-                <div style={{
-                    marginBottom: '10px',
-                    padding: '10px',
-                    backgroundColor: '#E50914',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
-                }}>
-                    Users
-                </div>
-                <div style={{ marginBottom: '10px', padding: '10px', cursor: 'pointer' }}>
-                    Movies
-                </div>
-                <div style={{ marginBottom: '10px', padding: '10px', cursor: 'pointer' }}>
-                    Settings
-                </div>
-                <div style={{ position: 'absolute', bottom: '20px', padding: '10px', cursor: 'pointer' }}>
-                    Logout
-                </div>
-            </div>
+            <AdminSidebar activePage="users" />
 
             <div style={{ marginLeft: '200px', padding: '30px' }}>
                 <Container fluid>
