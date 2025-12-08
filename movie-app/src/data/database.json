@@ -9,6 +9,8 @@
       "genres": ["Action", "Crime", "Drama"],
       "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
       "image": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg",
+      "featured": true,
       "director": "Christopher Nolan",
       "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"]
     },
@@ -21,6 +23,8 @@
       "genres": ["Action", "Sci-Fi", "Thriller"],
       "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
+      "featured": true,
       "director": "Christopher Nolan",
       "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]
     },
@@ -33,6 +37,8 @@
       "genres": ["Drama", "Thriller"],
       "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
       "image": "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
+      "featured": true,
       "director": "Bong Joon Ho",
       "cast": ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong"]
     },
@@ -93,6 +99,8 @@
       "genres": ["Adventure", "Fantasy"],
       "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
       "image": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/2u7zbn8EudG6kLlBzUYqP8RyFU4.jpg",
+      "featured": true,
       "director": "Peter Jackson",
       "cast": ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"]
     },
@@ -105,6 +113,8 @@
       "genres": ["Action", "Animation", "Adventure"],
       "description": "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/uTd5DVrrFK4UsKDIzcINacenELO.jpg",
+      "featured": true,
       "director": "Bob Persichetti",
       "cast": ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld"]
     },
