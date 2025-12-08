@@ -19,6 +19,21 @@ function HomePage() {
     fetchMovies();
   }, []);
 
+  const moviesRated = [...movies];
+  const moviesReleased = [...movies];
+
+  const MovieList = moviesRated.sort((a, b) => {
+    if (a.rating < b.rating) return 1;
+    if (a.rating > b.rating) return -1;
+    else return 0;
+  });
+
+  const MovieList2 = moviesReleased.sort((a, b) => {
+    if (a.year < b.year) return 1;
+    if (a.year > b.year) return -1;
+    else return 0;
+  });
+
   return (
     <div
       style={{
@@ -102,7 +117,7 @@ function HomePage() {
                         {movie.duration} mins
                       </span>
                     </div>
-                    <div className="d-flex" style={{ gap: "1rem" }}>
+                    <div className="d-flex mb-3" style={{ gap: "1rem" }}>
                       <Button
                         as={Link}
                         to={`/movie/${movie.id}`}
@@ -147,14 +162,84 @@ function HomePage() {
       </div>
       <div>
         <Container className="my-5">
-          <div className="d-flex space-between text-white">
+          <div className="d-flex justify-content-between text-white">
             <h2 className="mb-4">Trending Now</h2>
+            <a
+              href="/movies"
+              className="mt-3"
+              style={{
+                color: "#E50914",
+                textDecoration: "none",
+              }}
+            >
+              View more
+            </a>
           </div>
           <Row>
-            {movies.slice(0, 4).map((movie) => (
-              <Col key={movie.id} xs={6} md={3} className="mb-4">
+            {movies.slice(0, 5).map((movie) => (
+              <Col key={movie.id} className="mb-4">
                 <FilmCard
-                  Img={movie.poster}
+                  Img={movie.image}
+                  rating={movie.rating}
+                  title={movie.title}
+                  genres={movie.genres}
+                  year={movie.year}
+                ></FilmCard>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+      <div>
+        <Container className="my-5">
+          <div className="d-flex justify-content-between text-white">
+            <h2 className="mb-4">Top rated</h2>
+            <a
+              href="/movies"
+              className="mt-3"
+              style={{
+                color: "#E50914",
+                textDecoration: "none",
+              }}
+            >
+              View more
+            </a>
+          </div>
+          <Row>
+            {MovieList.slice(0, 5).map((movie) => (
+              <Col key={movie.id} className="mb-4">
+                <FilmCard
+                  Img={movie.image}
+                  rating={movie.rating}
+                  title={movie.title}
+                  genres={movie.genres}
+                  year={movie.year}
+                ></FilmCard>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+      <div>
+        <Container className="my-5">
+          <div className="d-flex justify-content-between text-white">
+            <h2 className="mb-4">New Releases</h2>
+            <a
+              href="/movies"
+              className="mt-3"
+              style={{
+                color: "#E50914",
+                textDecoration: "none",
+              }}
+            >
+              View more
+            </a>
+          </div>
+          <Row>
+            {MovieList2.slice(0, 5).map((movie) => (
+              <Col key={movie.id} className="mb-4">
+                <FilmCard
+                  Img={movie.image}
                   rating={movie.rating}
                   title={movie.title}
                   genres={movie.genres}
