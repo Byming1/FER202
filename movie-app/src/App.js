@@ -5,6 +5,8 @@ import MovieList from "./pages/MovieList";
 import FavouritePage from "./pages/FavouritePage";
 import MovieManage from "./adminpages/MovieManage";
 import UserManage from "./adminpages/UserManage";
+import MovieDetail from "./pages/MovieDetail";
+
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/favourites" element={<FavouritePage />}></Route>
         <Route path="/admin/movies" element={<MovieManage />}></Route>
         <Route path="/admin/users" element={<UserManage />}></Route>
+        <Route path="/movie/:id" element={<MovieDetail />} />
+
       </Routes>
     </BrowserRouter>
   );
