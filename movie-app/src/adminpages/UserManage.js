@@ -120,7 +120,7 @@ const UserManage = () => {
                                                 </td>
                                                 <td style={{ color: '#888' }}>{user.email}</td>
                                                 <td>
-                                                    <Badge style={{ backgroundColor: user.role === 'admin' ? '#E50914' : '#0d6efd' }}>
+                                                    <Badge className={user.role === 'admin' ? 'badge-admin' : 'badge-user'}>
                                                         {user.role}
                                                     </Badge>
                                                 </td>

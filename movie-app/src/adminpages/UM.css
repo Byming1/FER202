@@ -7,3 +7,11 @@
     background-color: #1a1a1a;
     color: #ffffff;
 }
+
+.badge-admin {
+    background-color: #E50914 !important;
+}
+
+.badge-user {
+    background-color: #0d6efd !important;
+}
