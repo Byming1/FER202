@@ -65,43 +65,44 @@ export default function MovieList() {
     }, [searchTerm, genres, year]);
 
     return (
-        <div className="bg-dark">
+        <div style={{ backgroundColor: "#0A0A0A" }}>
             <Navbar></Navbar>
             <div >
-                <Container style={{ marginTop: "40px", marginBottom: "40px" }}>
+                <Container style={{ marginTop: "40px", marginBottom: "20px" }}>
                     <h1 className="text-white">All Movies</h1>
                     <p className="text-white">discorver thousands o movies across all genres</p>
                 </Container>
-                <Container style={{ backgroundColor: "black", padding: "20px" }}>
+                <Container className="bg-dark" style={{ padding: "20px", marginBottom: "60px" }}>
                     <Row>
                         <Col xs={6}>
-                            <Form.Control placeholder="Search movies..." className="bg-dark"
+                            <Form.Control placeholder="Search movies..."
                                 style={{
                                     border: "1px solid black",
                                     color: "white",
                                     '::placeholder': {
                                         color: "white"
                                     }
+                                    , backgroundColor: "#0A0A0A", borderRadius: "10px"
                                 }}
                             ></Form.Control>
                         </Col>
                         <Col xs={3}>
-                            <Form.Select style={{ border: "1px solid black" }} className="bg-dark text-white">
+                            <Form.Select style={{ border: "1px solid black", borderRadius: "10px", backgroundColor: "#0A0A0A" }} className="text-white">
                                 <option>All genres</option>
                             </Form.Select>
                         </Col>
                         <Col xs={3}>
-                            <Form.Select style={{ border: "1px solid black" }} className="bg-dark text-white">
+                            <Form.Select style={{ border: "1px solid black", borderRadius: "10px", backgroundColor: "#0A0A0A" }} className="text-white">
                                 <option>All years</option>
                             </Form.Select>
                         </Col>
                     </Row>
-                    <div style={{ marginTop: "25px" }}>
+                    <div style={{ marginTop: "25px", marginBottom: "px" }}>
                         <span className="text-white">Rating: </span>
-                        <Button variant="dark" style={{ margin: "0px 5px" }}>Any</Button>
-                        <Button variant="dark" style={{ margin: "0px 5px" }}>7+</Button>
-                        <Button variant="dark" style={{ margin: "0px 5px" }}>8+</Button>
-                        <Button variant="dark" style={{ margin: "0px 5px" }}>9+</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>Any</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>7+</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>8+</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>9+</Button>
                     </div>
                 </Container>
 
