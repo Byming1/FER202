@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Container, Row, Col, Table, Form, Button, Badge, InputGroup } from 'react-bootstrap';
 import { instance } from '../axios/Axios';
 import AdminSidebar from './AdminSidebar';
+import './UM.css';
 
 const UserManage = () => {
     const [users, setUsers] = useState([]);
@@ -58,8 +59,8 @@ const UserManage = () => {
                             </InputGroup>
                         </Col>
                         <Col xs="auto">
-                            <Button variant="danger">
-                                Add New User
+                            <Button style={{ backgroundColor: '#E50914', color: 'white' }}>
+                                + Add New User
                             </Button>
                         </Col>
                     </Row>
@@ -85,9 +86,9 @@ const UserManage = () => {
                                     </div>
                                 </div>
 
-                                <Table hover variant="dark" style={{ backgroundColor: 'transparent' }}>
+                                <Table hover>
                                     <thead>
-                                        <tr style={{ borderBottom: '1px solid #333' }}>
+                                        <tr id="table-header" style={{ borderBottom: '1px solid #333' }}>
                                             <th>User</th>
                                             <th>Email</th>
                                             <th>Role</th>
@@ -97,7 +98,7 @@ const UserManage = () => {
                                     </thead>
                                     <tbody>
                                         {filteredUsers.map(user => (
-                                            <tr key={user.userId} style={{ borderBottom: '1px solid #222' }}>
+                                            <tr id='table-content' key={user.userId} style={{ borderBottom: '1px solid #222' }}>
                                                 <td>
                                                     <div className="d-flex align-items-center">
                                                         <div
@@ -119,7 +120,7 @@ const UserManage = () => {
                                                 </td>
                                                 <td style={{ color: '#888' }}>{user.email}</td>
                                                 <td>
-                                                    <Badge bg={user.role === 'admin' ? 'danger' : 'primary'}>
+                                                    <Badge style={{ backgroundColor: user.role === 'admin' ? '#E50914' : '#0d6efd' }}>
                                                         {user.role}
                                                     </Badge>
                                                 </td>
@@ -129,12 +130,23 @@ const UserManage = () => {
                                                     </Badge>
                                                 </td>
                                                 <td>
-                                                    <Button variant="link" size="sm" style={{ color: 'white', textDecoration: 'none', marginRight: '10px' }}>
-                                                        Edit
-                                                    </Button>
-                                                    <Button variant="link" size="sm" style={{ color: '#888', textDecoration: 'none' }}>
-                                                        Delete
-                                                    </Button>
+                                                    <i
+                                                        className="bi bi-pencil-square"
+                                                        style={{
+                                                            color: 'white',
+                                                            cursor: 'pointer',
+                                                            marginRight: '15px',
+                                                            fontSize: '18px'
+                                                        }}
+                                                    ></i>
+                                                    <i
+                                                        className="bi bi-trash"
+                                                        style={{
+                                                            color: '#888',
+                                                            cursor: 'pointer',
+                                                            fontSize: '18px'
+                                                        }}
+                                                    ></i>
                                                 </td>
                                             </tr>
                                         ))}
@@ -147,7 +159,7 @@ const UserManage = () => {
                                     </div>
                                     <div>
                                         <Button variant="outline-secondary" size="sm" className="me-2">Previous</Button>
-                                        <Button variant="danger" size="sm" className="me-2">1</Button>
+                                        <Button style={{ backgroundColor: '#E50914', color: 'white' }} size="sm" className="me-2">1</Button>
                                         <Button variant="outline-secondary" size="sm" className="me-2">2</Button>
                                         <Button variant="outline-secondary" size="sm" className="me-2">3</Button>
                                         <span className="me-2">...</span>

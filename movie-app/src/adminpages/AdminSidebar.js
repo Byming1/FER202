@@ -1,11 +1,7 @@
-import React from 'react';
-
 const AdminSidebar = ({ activePage }) => {
     return (
         <div style={{
             position: 'fixed',
-            left: 0,
-            top: 0,
             width: '200px',
             height: '100vh',
             backgroundColor: '#000',
@@ -20,6 +16,7 @@ const AdminSidebar = ({ activePage }) => {
                 backgroundColor: activePage === 'dashboard' ? '#E50914' : 'transparent',
                 borderRadius: '5px'
             }}>
+                <i className="bi bi-speedometer2" style={{ marginRight: '10px' }}></i>
                 Dashboard
             </div>
 
@@ -30,6 +27,7 @@ const AdminSidebar = ({ activePage }) => {
                 borderRadius: '5px',
                 cursor: 'pointer'
             }}>
+                <i className="bi bi-people-fill" style={{ marginRight: '10px' }}></i>
                 Users
             </div>
 
@@ -40,6 +38,7 @@ const AdminSidebar = ({ activePage }) => {
                 backgroundColor: activePage === 'movies' ? '#E50914' : 'transparent',
                 borderRadius: '5px'
             }}>
+                <i className="bi bi-film" style={{ marginRight: '10px' }}></i>
                 Movies
             </div>
 
@@ -48,6 +47,7 @@ const AdminSidebar = ({ activePage }) => {
                 padding: '10px',
                 cursor: 'pointer'
             }}>
+                <i className="bi bi-gear-fill" style={{ marginRight: '10px' }}></i>
                 Settings
             </div>
 
@@ -57,6 +57,7 @@ const AdminSidebar = ({ activePage }) => {
                 padding: '10px',
                 cursor: 'pointer'
             }}>
+                <i className="bi bi-box-arrow-right" style={{ marginRight: '10px' }}></i>
                 Logout
             </div>
         </div>
