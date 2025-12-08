@@ -1,0 +1,199 @@
+import { Button, CardGroup, Col, Container, Form, Row } from "react-bootstrap";
+import Footer from "../components/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import { use, useEffect, useState } from "react";
+import { instance } from "../axios/Axios";
+import FilmCard from "../components/FilmCard";
+
+
+export default function MovieList() {
+    // lấy tất cả các thể loại/năm có trong các phim
+    const [allMovies, setAllMovies] = useState([]);
+    const [allYears, setAllYears] = useState([]);
+    const [allGenres, setAllGenres] = useState([]);
+
+    // data được nhập vào - năm, thể loại và tên
+    const [searchTerm, setSearchTerm] = useState("");
+    const [genres, setGenres] = useState("All genres");
+    const [year, setYear] = useState("All years");
+
+    // các phim sau khi lọc, page hiện tại và page tối đa có thể đạt tới.
+    const [movies, setMovies] = useState([]);
+    const [presentPage, setPresentPage] = useState(1);
+    const [maxPage, setMaxPage] = useState(NaN);
+
+    // nạp data từ axios, lấy data ban đầu và lấy maxPage
+    const fetchMovies = async () => {
+        await instance.get("/movies").then((res) => {
+            setAllMovies(res.data);
+            setMovies(res.data);
+            setMaxPage(Math.ceil(res.data.length / 10));
+        });
+    };
+
+    // lọc lấy phim từ search, year và genres, mỗi khi chọn mới thì nó cho về trang 1 luôn.
+    const filterMovies = () => {
+        let filtered = allMovies;
+        if (searchTerm) {
+            filtered = filtered.filter(movie =>
+                movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+        if (genres !== "All genres") {
+            filtered = filtered.filter(movie =>
+                movie.genre === genres
+            );
+        }
+        if (year !== "All years") {
+            filtered = filtered.filter(movie =>
+                movie.year === parseInt(year)
+            );
+        }
+        setMovies(filtered);
+        setMaxPage(Math.ceil(filtered.length / 10));
+        setPresentPage(1);
+    };
+
+    useEffect(() => {
+        fetchMovies();
+    }, []);
+
+    useEffect(() => {
+        if (allMovies.length > 0) {
+            filterMovies();
+        }
+    }, [searchTerm, genres, year]);
+
+    return (
+        <div className="bg-dark">
+            <Navbar></Navbar>
+            <div >
+                <Container style={{ marginTop: "40px", marginBottom: "40px" }}>
+                    <h1 className="text-white">All Movies</h1>
+                    <p className="text-white">discorver thousands o movies across all genres</p>
+                </Container>
+                <Container style={{ backgroundColor: "black", padding: "20px" }}>
+                    <Row>
+                        <Col xs={6}>
+                            <Form.Control placeholder="Search movies..." className="bg-dark"
+                                style={{
+                                    border: "1px solid black",
+                                    color: "white",
+                                    '::placeholder': {
+                                        color: "white"
+                                    }
+                                }}
+                            ></Form.Control>
+                        </Col>
+                        <Col xs={3}>
+                            <Form.Select style={{ border: "1px solid black" }} className="bg-dark text-white">
+                                <option>All genres</option>
+                            </Form.Select>
+                        </Col>
+                        <Col xs={3}>
+                            <Form.Select style={{ border: "1px solid black" }} className="bg-dark text-white">
+                                <option>All years</option>
+                            </Form.Select>
+                        </Col>
+                    </Row>
+                    <div style={{ marginTop: "25px" }}>
+                        <span className="text-white">Rating: </span>
+                        <Button variant="dark" style={{ margin: "0px 5px" }}>Any</Button>
+                        <Button variant="dark" style={{ margin: "0px 5px" }}>7+</Button>
+                        <Button variant="dark" style={{ margin: "0px 5px" }}>8+</Button>
+                        <Button variant="dark" style={{ margin: "0px 5px" }}>9+</Button>
+                    </div>
+                </Container>
+
+                <Container>
+                    <Row className="g-3">
+                        {
+                            movies
+                                .slice((presentPage - 1) * 10, presentPage * 10)
+                                .map(movie => {
+                                    return (
+                                        <div className="col" style={{ flex: '0 0 20%', maxWidth: '20%' }} key={movie.id}>
+                                            <FilmCard
+                                                Img={movie.image}
+                                                rating={movie.rating}
+                                                title={movie.title}
+                                                genres={movie.genres}
+                                                year={movie.year}
+                                            />
+                                        </div>
+                                    )
+                                })
+                        }
+                    </Row>
+                </Container>
+
+                <Container>
+                    <div className="d-flex justify-content-center" style={{ marginTop: "50px" }}>
+                        <Button
+                            variant="dark"
+                            onClick={() => setPresentPage(Math.max(1, presentPage - 1))}
+                            disabled={presentPage === 1}
+                        >
+                            {"<"}
+                        </Button>
+
+                        {presentPage > 2 && (
+                            <>
+                                <Button variant="dark" onClick={() => setPresentPage(1)}>
+                                    1
+                                </Button>
+                                {presentPage > 3 && (
+                                    <Button variant="dark" disabled style={{ cursor: "default" }}>
+                                        ...
+                                    </Button>
+                                )}
+                            </>
+                        )}
+
+                        {presentPage > 1 && (
+                            <Button variant="dark" onClick={() => setPresentPage(presentPage - 1)}>
+                                {presentPage - 1}
+                            </Button>
+                        )}
+
+                        <Button variant="danger">{presentPage}</Button>
+
+                        {presentPage < maxPage && (
+                            <Button variant="dark" onClick={() => setPresentPage(presentPage + 1)}>
+                                {presentPage + 1}
+                            </Button>
+                        )}
+
+                        {presentPage < maxPage - 1 && (
+                            <Button variant="dark" onClick={() => setPresentPage(presentPage + 2)}>
+                                {presentPage + 2}
+                            </Button>
+                        )}
+
+                        {presentPage < maxPage - 2 && (
+                            <>
+                                {presentPage < maxPage - 3 && (
+                                    <Button variant="dark" disabled style={{ cursor: "default" }}>
+                                        ...
+                                    </Button>
+                                )}
+                                <Button variant="dark" onClick={() => setPresentPage(maxPage)}>
+                                    {maxPage}
+                                </Button>
+                            </>
+                        )}
+
+                        <Button
+                            variant="dark"
+                            onClick={() => setPresentPage(Math.min(maxPage, presentPage + 1))}
+                            disabled={presentPage === maxPage}
+                        >
+                            {">"}
+                        </Button>
+                    </div>
+                </Container>
+            </div>
+            <Footer></Footer>
+        </div>
+    )
+}
