@@ -179,6 +179,8 @@ function HomePage() {
             {movies.slice(0, 5).map((movie) => (
               <Col key={movie.id} className="mb-4">
                 <FilmCard
+                  movie={movie}
+                  id={movie.id}
                   Img={movie.image}
                   rating={movie.rating}
                   title={movie.title}
@@ -209,6 +211,8 @@ function HomePage() {
             {MovieList.slice(0, 5).map((movie) => (
               <Col key={movie.id} className="mb-4">
                 <FilmCard
+                  movie={movie}
+                  id={movie.id}
                   Img={movie.image}
                   rating={movie.rating}
                   title={movie.title}
@@ -239,6 +243,8 @@ function HomePage() {
             {MovieList2.slice(0, 5).map((movie) => (
               <Col key={movie.id} className="mb-4">
                 <FilmCard
+                  movie={movie}
+                  id={movie.id}
                   Img={movie.image}
                   rating={movie.rating}
                   title={movie.title}

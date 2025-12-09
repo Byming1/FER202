@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const FilmCard = ({ Img, rating, title, genres, year }) => {
+const FilmCard = ({ movie, id, Img, rating, title, genres, year }) => {
   const full = genres.join(", ");
   const maxLength = 15;
   const displayText =
@@ -10,6 +11,8 @@ const FilmCard = ({ Img, rating, title, genres, year }) => {
       style={{
         border: "none",
       }}
+      as={Link}
+      to={`/movie/${id}`}
     >
       <Card.Img
         style={{

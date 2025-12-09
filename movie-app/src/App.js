@@ -6,11 +6,12 @@ import FavouritePage from "./pages/FavouritePage";
 import MovieManage from "./adminpages/MovieManage";
 import UserManage from "./adminpages/UserManage";
 import MovieDetail from "./pages/MovieDetail";
-
+import ScrollToTop from "./components/Scroll/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/movies" element={<MovieList />}></Route>
@@ -18,7 +19,6 @@ function App() {
         <Route path="/admin/movies" element={<MovieManage />}></Route>
         <Route path="/admin/users" element={<UserManage />}></Route>
         <Route path="/movie/:id" element={<MovieDetail />} />
-
       </Routes>
     </BrowserRouter>
   );
