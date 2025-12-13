@@ -23,7 +23,7 @@ function App() {
           <Route
             path="/favourites"
             element={
-              <ProtectRoutes allowedRoles={["user"]}>
+              <ProtectRoutes allowedRoles={["user", "admin"]}>
                 <FavouritePage />
               </ProtectRoutes>
             }
