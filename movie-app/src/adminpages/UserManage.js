@@ -2,12 +2,21 @@ import { useState, useEffect } from 'react';
 import { Container, Row, Col, Table, Form, Button, Badge, InputGroup } from 'react-bootstrap';
 import { instance } from '../axios/Axios';
 import AdminSidebar from './AdminSidebar';
+import Pagination from './Pagination';
+import DeleteUser from './DeleteUser';
+import EditUser from './EditUser';
 import './UM.css';
 
 const UserManage = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [usersPerPage] = useState(10);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [userToDelete, setUserToDelete] = useState(null);
+    const [userToEdit, setUserToEdit] = useState(null);
 
     useEffect(() => {
         fetchUsers();
@@ -24,10 +33,49 @@ const UserManage = () => {
         }
     };
 
+    const handleDeleteClick = (user) => {
+        setUserToDelete(user);
+        setShowDeleteModal(true);
+    };
+
+    const handleEditClick = (user) => {
+        setUserToEdit(user);
+        setShowEditModal(true);
+    };
+
+    const handleDeleteSuccess = (userId) => {
+        const deletedUser = users.find(u => (u.id === userId || u.userId === userId));
+        alert(`Delete user with name: ${deletedUser?.username} successfully`);
+        setUsers(users.filter(u => (u.id || u.userId) !== userId));
+    };
+
+    const handleEditSuccess = (userId, updatedData) => {
+        setUsers(users.map(u => {
+            if (u.id === userId || u.userId === userId) {
+                return { ...u, ...updatedData };
+            }
+            return u;
+        }));
+        alert('User updated successfully');
+    };
+
     const filteredUsers = users.filter(user =>
         user.username?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         user.email?.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchQuery]);
 
     if (loading) {
         return <div style={{ color: 'white', textAlign: 'center', padding: '40px' }}>Loading...</div>;
@@ -47,7 +95,7 @@ const UserManage = () => {
                         <Col xs="auto">
                             <InputGroup>
                                 <Form.Control
-                                    placeholder="Search users..."
+                                    placeholder="Search users by name..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     style={{
@@ -95,8 +143,8 @@ const UserManage = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {filteredUsers.map(user => (
-                                            <tr id='table-content' key={user.userId} style={{ borderBottom: '1px solid #222' }}>
+                                        {currentUsers.map(user => (
+                                            <tr id='table-content' key={user.id || user.userId} style={{ borderBottom: '1px solid #222' }}>
                                                 <td>
                                                     <div className="d-flex align-items-center">
                                                         <div
@@ -118,18 +166,22 @@ const UserManage = () => {
                                                 </td>
                                                 <td style={{ color: '#888' }}>{user.email}</td>
                                                 <td>
-                                                    <Badge className={user.role === 'admin' ? 'badge-admin' : 'badge-user'}>
+                                                    <Badge
+                                                        bg=""
+                                                        className={user.role === 'admin' ? 'badge-admin' : 'badge-user'}
+                                                    >
                                                         {user.role}
                                                     </Badge>
                                                 </td>
                                                 <td>
-                                                    <Badge bg="success">
-                                                        Active
+                                                    <Badge bg={(user.status || 'active') === 'active' ? 'success' : user.status === 'inactive' ? 'secondary' : 'warning'}>
+                                                        {user.status || 'Active'}
                                                     </Badge>
                                                 </td>
                                                 <td>
                                                     <i
                                                         className="bi bi-pencil-square"
+                                                        onClick={() => handleEditClick(user)}
                                                         style={{
                                                             color: 'white',
                                                             cursor: 'pointer',
@@ -137,44 +189,50 @@ const UserManage = () => {
                                                             fontSize: '18px'
                                                         }}
                                                     ></i>
-                                                    <i
-                                                        className="bi bi-trash"
-                                                        style={{
-                                                            color: '#888',
-                                                            cursor: 'pointer',
-                                                            fontSize: '18px'
-                                                        }}
-                                                    ></i>
+                                                    {user.role === 'user' && (
+                                                        <i
+                                                            className="bi bi-trash"
+                                                            onClick={() => handleDeleteClick(user)}
+                                                            style={{
+                                                                color: '#E50914',
+                                                                cursor: 'pointer',
+                                                                fontSize: '18px'
+                                                            }}
+                                                        ></i>
+                                                    )}
                                                 </td>
                                             </tr>
                                         ))}
                                     </tbody>
                                 </Table>
 
-                                <div className="d-flex justify-content-between align-items-center mt-3">
-                                    <div style={{ color: '#888' }}>
-                                        Showing 1-{filteredUsers.length} of {users.length}
-                                    </div>
-                                    <div>
-                                        <Button variant="outline-secondary" size="sm" className="me-2">Previous</Button>
-                                        <Button style={{ backgroundColor: '#E50914', color: 'white', border: 'none' }} size="sm" className="me-2">1</Button>
-                                        <Button variant="outline-secondary" size="sm" className="me-2">2</Button>
-                                        <Button variant="outline-secondary" size="sm" className="me-2">3</Button>
-                                        <span className="me-2">...</span>
-                                        <Button variant="outline-secondary" size="sm" className="me-2">Next</Button>
-                                    </div>
-                                </div>
+                                <Pagination
+                                    currentPage={currentPage}
+                                    totalPages={totalPages}
+                                    onPageChange={handlePageChange}
+                                    indexOfFirstItem={indexOfFirstUser}
+                                    indexOfLastItem={indexOfLastUser}
+                                    totalItems={filteredUsers.length}
+                                />
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
 
-            <style jsx>{`
-                input::placeholder {
-                    color: #888 !important;
-                }
-            `}</style>
+            <DeleteUser
+                show={showDeleteModal}
+                user={userToDelete}
+                onHide={() => setShowDeleteModal(false)}
+                onDeleteSuccess={handleDeleteSuccess}
+            />
+
+            <EditUser
+                show={showEditModal}
+                user={userToEdit}
+                onHide={() => setShowEditModal(false)}
+                onEditSuccess={handleEditSuccess}
+            />
         </div>
     );
 };

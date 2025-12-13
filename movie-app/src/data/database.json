@@ -1462,28 +1462,20 @@
       "id": "ee4d"
     },
     {
-      "userId": 2,
+      "userId": 3,
       "username": "john_doe",
       "email": "john@example.com",
       "password": "password123",
       "role": "user",
-      "id": "2220"
-    },
-    {
-      "userId": 3,
-      "username": "jane_smith",
-      "email": "jane@example.com",
-      "password": "password456",
-      "role": "user",
-      "id": "e4f7"
+      "id": "22202"
     },
     {
       "userId": 4,
-      "username": "mike_wilson",
-      "email": "mike@example.com",
-      "password": "password789",
+      "username": "john_doe2",
+      "email": "john@2example.com",
+      "password": "password123",
       "role": "user",
-      "id": "d2e4"
+      "id": "222202"
     },
     {
       "id": "9c93",
@@ -1495,22 +1487,6 @@
     }
   ],
   "watchList": [
-    {
-      "watchListId": 1,
-      "userId": 2,
-      "movies": [
-        {
-          "movieId": 1
-        },
-        {
-          "movieId": 2
-        },
-        {
-          "movieId": 5
-        }
-      ],
-      "id": "5752"
-    },
     {
       "watchListId": 2,
       "userId": 3,
