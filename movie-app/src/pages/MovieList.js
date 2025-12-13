@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { use, useEffect, useState } from "react";
 import { instance } from "../axios/Axios";
 import FilmCard from "../components/FilmCard";
+import style from "./MovieList.module.css";
 
 
 export default function MovieList() {
@@ -72,16 +73,14 @@ export default function MovieList() {
                     <h1 className="text-white">All Movies</h1>
                     <p className="text-white">discorver thousands o movies across all genres</p>
                 </Container>
-                <Container className="bg-dark" style={{ padding: "20px", marginBottom: "60px" }}>
+                <Container className="bg-dark" style={{ padding: "20px", marginBottom: "60px",borderRadius: "15px" }}>
                     <Row>
                         <Col xs={6}>
                             <Form.Control placeholder="Search movies..."
+                            className={style.search_placeholder}
                                 style={{
                                     border: "1px solid black",
-                                    color: "white",
-                                    '::placeholder': {
-                                        color: "white"
-                                    }
+                                    color: "white"
                                     , backgroundColor: "#0A0A0A", borderRadius: "10px"
                                 }}
                             ></Form.Control>
@@ -130,7 +129,7 @@ export default function MovieList() {
 
                 <Container>
                     <div className="d-flex justify-content-center" style={{ marginTop: "50px" }}>
-                        <Button
+                        <Button className={style.button_changePage}
                             variant="dark"
                             onClick={() => setPresentPage(Math.max(1, presentPage - 1))}
                             disabled={presentPage === 1}
@@ -140,11 +139,11 @@ export default function MovieList() {
 
                         {presentPage > 2 && (
                             <>
-                                <Button variant="dark" onClick={() => setPresentPage(1)}>
+                                <Button variant="dark" onClick={() => setPresentPage(1)} className={style.button_changePage}>
                                     1
                                 </Button>
                                 {presentPage > 3 && (
-                                    <Button variant="dark" disabled style={{ cursor: "default" }}>
+                                    <Button variant="dark" disabled style={{ cursor: "default" }} className={style.button_changePage}>
                                         ...
                                     </Button>
                                 )}
@@ -152,21 +151,21 @@ export default function MovieList() {
                         )}
 
                         {presentPage > 1 && (
-                            <Button variant="dark" onClick={() => setPresentPage(presentPage - 1)}>
+                            <Button variant="dark" onClick={() => setPresentPage(presentPage - 1)} className={style.button_changePage}>
                                 {presentPage - 1}
                             </Button>
                         )}
 
-                        <Button variant="danger">{presentPage}</Button>
+                        <Button variant="danger" className={style.button_changePage}>{presentPage}</Button>
 
                         {presentPage < maxPage && (
-                            <Button variant="dark" onClick={() => setPresentPage(presentPage + 1)}>
+                            <Button variant="dark" onClick={() => setPresentPage(presentPage + 1)} className={style.button_changePage}>
                                 {presentPage + 1}
                             </Button>
                         )}
 
                         {presentPage < maxPage - 1 && (
-                            <Button variant="dark" onClick={() => setPresentPage(presentPage + 2)}>
+                            <Button variant="dark" onClick={() => setPresentPage(presentPage + 2)} className={style.button_changePage}>
                                 {presentPage + 2}
                             </Button>
                         )}
@@ -174,11 +173,11 @@ export default function MovieList() {
                         {presentPage < maxPage - 2 && (
                             <>
                                 {presentPage < maxPage - 3 && (
-                                    <Button variant="dark" disabled style={{ cursor: "default" }}>
+                                    <Button variant="dark" disabled style={{ cursor: "default" }} className={style.button_changePage}>
                                         ...
                                     </Button>
                                 )}
-                                <Button variant="dark" onClick={() => setPresentPage(maxPage)}>
+                                <Button variant="dark" onClick={() => setPresentPage(maxPage)} className={style.button_changePage} >
                                     {maxPage}
                                 </Button>
                             </>
@@ -188,6 +187,7 @@ export default function MovieList() {
                             variant="dark"
                             onClick={() => setPresentPage(Math.min(maxPage, presentPage + 1))}
                             disabled={presentPage === maxPage}
+                            className={style.button_changePage}
                         >
                             {">"}
                         </Button>

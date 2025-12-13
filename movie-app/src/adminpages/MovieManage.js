@@ -75,7 +75,7 @@ const MovieManage = () => {
               </InputGroup>
             </Col>
             <Col xs="auto">
-              <Button style={{ backgroundColor: "#E50914", color: "white" ,border:"none"}}>
+              <Button style={{ backgroundColor: "#E50914", color: "white", border: "none" }}>
                 + Add New Movie
               </Button>
             </Col>
