@@ -24,24 +24,54 @@ function FavouritePage() {
   useEffect(() => {
     const fetchFavouriteMovies = async () => {
       try {
-        const response = await instance.get("/movies");
-        const movies = response.data;
+        const currentUser = JSON.parse(localStorage.getItem("user"));
+        if (!currentUser || !currentUser.userId) {
+          console.log("No user logged in");
+          return;
+        }
+
+        const watchListResponse = await instance.get(
+          `/watchList?userId=${currentUser.userId}`
+        );
+        const watchListData = watchListResponse.data;
+
+        if (watchListData.length === 0) {
+          setFavouriteMovies([]);
+          setTotalFavourites(0);
+          setTotalRuntime(0);
+          setAvgRating(0);
+          return;
+        }
+
+        const movieIds = watchListData[0].movies.map((m) => m.movieId);
+
+        const moviePromises = movieIds.map((id) =>
+          instance.get(`/movies/${id}`)
+        );
+        const movieResponses = await Promise.all(moviePromises);
+        const movies = movieResponses.map((res) => res.data);
+
         setFavouriteMovies(movies);
-        setAvgRating(avgRating);
+
+        setTotalFavourites(movies.length);
+
+        const totalDuration = movies.reduce(
+          (sum, movie) => sum + (movie.duration || 0),
+          0
+        );
+        setTotalRuntime(Math.round(totalDuration / 60));
+
+        const totalRating = movies.reduce(
+          (sum, movie) => sum + (movie.rating || 0),
+          0
+        );
+        setAvgRating((totalRating / movies.length).toFixed(1));
       } catch (error) {
         console.error("Error fetching favourite movies:", error);
       }
     };
 
     fetchFavouriteMovies();
-  }, []);
-
-  useEffect(() => {
-    setTotalFavourites(0);
-    setTotalRuntime(0);
-    setAvgRating(0);
-
-    setFavouriteMovies([]);
   }, []);
 
   const totalPages = Math.ceil(favouriteMovies.length / itemsPerPage);
@@ -267,7 +297,6 @@ function FavouritePage() {
               <option value="2">Name (z-a)</option>
               <option value="3">Rate (low to high)</option>
               <option value="4">Rate (high to low)</option>
-              <option value="5">Year</option>
             </Form.Select>
           </div>
 
