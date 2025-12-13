@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar as BSNavbar,
   Container,
@@ -7,10 +7,19 @@ import {
   Form,
   FormControl,
   Button,
+  NavDropdown,
 } from "react-bootstrap";
 import "./Navbar.css";
+import { useUser } from "../../context/UserContext";
 
 function Navbar() {
+  const { user, logout } = useUser();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
   return (
     <BSNavbar
       expand="lg"
@@ -80,18 +89,44 @@ function Navbar() {
             >
               <i className="bi bi-search"></i>
             </Button>
-            <Button
-              as={Link}
-              to="/login"
-              className="rounded-pill ms-1 px-4"
-              style={{
-                backgroundColor: "#E50914",
-                border: "none",
-                color: "#ffffff",
-              }}
-            >
-              Login
-            </Button>
+            {user ? (
+              <NavDropdown
+                style={{ marginLeft: "10px" }}
+                className="fw-bold"
+                title={`Hello, ${user.username}`}
+              >
+                {user.role === "admin" && (
+                  <NavDropdown.Item href="/admin/movies">
+                    <i
+                      style={{ marginRight: "10px" }}
+                      class="bi bi-speedometer2"
+                    ></i>{" "}
+                    Admin Dashboard
+                  </NavDropdown.Item>
+                )}
+                <NavDropdown.Item onClick={() => handleLogout()}>
+                  <i
+                    style={{ marginRight: "10px" }}
+                    class="bi bi-box-arrow-right"
+                  ></i>{" "}
+                  Logout
+                </NavDropdown.Item>
+                {user.role === "admin" && <NavDropdown.Item href="/Admin" />}
+              </NavDropdown>
+            ) : (
+              <Button
+                as={Link}
+                to="/login"
+                className="rounded-pill ms-1 px-4"
+                style={{
+                  backgroundColor: "#E50914",
+                  border: "none",
+                  color: "#ffffff",
+                }}
+              >
+                Login
+              </Button>
+            )}
           </Form>
         </BSNavbar.Collapse>
       </Container>

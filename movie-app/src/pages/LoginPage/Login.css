@@ -1,0 +1,24 @@
+.login-page .form-control {
+  background-color: #1E1E1E !important;
+  border: 1px solid #3a3a3a !important;
+  color: #ffffff !important;
+}
+
+.login-page .form-control:focus {
+  background-color: #1E1E1E !important;
+  border-color: #666 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.login-page .form-control::placeholder {
+  color: #757575 !important;
+}
+
+.login-page .form-control:-webkit-autofill,
+.login-page .form-control:-webkit-autofill:hover,
+.login-page .form-control:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1E1E1E inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
