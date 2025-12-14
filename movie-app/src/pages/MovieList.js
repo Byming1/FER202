@@ -17,6 +17,7 @@ export default function MovieList() {
     const [searchTerm, setSearchTerm] = useState("");
     const [genres, setGenres] = useState("All genres");
     const [year, setYear] = useState("All years");
+    const [rating, setRating] = useState(0);
 
     // các phim sau khi lọc, page hiện tại và page tối đa có thể đạt tới.
     const [movies, setMovies] = useState([]);
@@ -26,9 +27,20 @@ export default function MovieList() {
     // nạp data từ axios, lấy data ban đầu và lấy maxPage
     const fetchMovies = async () => {
         await instance.get("/movies").then((res) => {
+            const moviesData = res.data;
             setAllMovies(res.data);
             setMovies(res.data);
             setMaxPage(Math.ceil(res.data.length / 10));
+
+            // lọc lấy các thể loại của movie 
+            const allGenresNested = moviesData.map(movie => movie.genres);
+            const uniqueGenres = [...new Set(allGenresNested.flat())];
+            setAllGenres(uniqueGenres);
+
+            const allYearsRaw = moviesData.map(movie => movie.year);
+            const uniqueYears = [...new Set(allYearsRaw)].sort((a, b) => b - a);
+            setAllYears(uniqueYears);
+
         });
     };
 
@@ -42,12 +54,18 @@ export default function MovieList() {
         }
         if (genres !== "All genres") {
             filtered = filtered.filter(movie =>
-                movie.genre === genres
+                movie.genres.includes(genres)
             );
         }
+
         if (year !== "All years") {
             filtered = filtered.filter(movie =>
                 movie.year === parseInt(year)
+            );
+        }
+        if (rating > 0) { 
+            filtered = filtered.filter(movie =>
+                movie.rating >= rating
             );
         }
         setMovies(filtered);
@@ -63,7 +81,7 @@ export default function MovieList() {
         if (allMovies.length > 0) {
             filterMovies();
         }
-    }, [searchTerm, genres, year]);
+    }, [searchTerm, genres, year, rating]);
 
     return (
         <div style={{ backgroundColor: "#0A0A0A" }}>
@@ -73,11 +91,11 @@ export default function MovieList() {
                     <h1 className="text-white">All Movies</h1>
                     <p className="text-white">discorver thousands o movies across all genres</p>
                 </Container>
-                <Container className="bg-dark" style={{ padding: "20px", marginBottom: "60px",borderRadius: "15px" }}>
+                <Container className="bg-dark" style={{ padding: "20px", marginBottom: "60px", borderRadius: "15px" }}>
                     <Row>
                         <Col xs={6}>
-                            <Form.Control placeholder="Search movies..."
-                            className={style.search_placeholder}
+                            <Form.Control placeholder="Search movies..." onChange={(event) => setSearchTerm(event.target.value)}
+                                className={style.search_placeholder}
                                 style={{
                                     border: "1px solid black",
                                     color: "white"
@@ -86,22 +104,53 @@ export default function MovieList() {
                             ></Form.Control>
                         </Col>
                         <Col xs={3}>
-                            <Form.Select style={{ border: "1px solid black", borderRadius: "10px", backgroundColor: "#0A0A0A" }} className="text-white">
-                                <option>All genres</option>
+                            <Form.Select
+                                value={genres}
+                                onChange={(event) => {
+                                    setGenres(event.target.value);
+                                }}
+                                style={{ border: "1px solid black", borderRadius: "10px", backgroundColor: "#0A0A0A" }} className="text-white">
+                                <option value="All genres">All genres</option>
+                                {allGenres.map((gen) => {
+                                    return (
+                                        <option key={gen} value={gen}>
+                                            {gen}
+                                        </option>
+                                    );
+                                })}
+
                             </Form.Select>
                         </Col>
                         <Col xs={3}>
-                            <Form.Select style={{ border: "1px solid black", borderRadius: "10px", backgroundColor: "#0A0A0A" }} className="text-white">
-                                <option>All years</option>
+                            <Form.Select
+                                value={year}
+                                onChange={(event) => {
+                                    setYear(event.target.value);
+                                }}
+                                style={{ border: "1px solid black", borderRadius: "10px", backgroundColor: "#0A0A0A" }}
+                                className="text-white"
+                            >
+                                <option value="All years">All years</option>
+                                {allYears.map((y) => {
+                                    const yearString = String(y);
+                                    return (
+                                        <option
+                                            key={yearString}
+                                            value={yearString}
+                                        >
+                                            {y}
+                                        </option>
+                                    );
+                                })}
                             </Form.Select>
                         </Col>
                     </Row>
                     <div style={{ marginTop: "25px", marginBottom: "px" }}>
                         <span className="text-white">Rating: </span>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>Any</Button>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>7+</Button>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>8+</Button>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}>9+</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}  onClick={() => setRating(0)}>Any</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(7)} active={rating === 7}>7+</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(8)} active={rating === 8}>8+</Button>
+                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(9)} active={rating === 9}>9+</Button>
                     </div>
                 </Container>
 
