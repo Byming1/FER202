@@ -18,6 +18,21 @@
     color: white !important;
 }
 
+.badge-active {
+    background-color: #198754 !important;
+    color: white !important;
+}
+
+.badge-inactive {
+    background-color: #6c757d !important;
+    color: white !important;
+}
+
+.badge-pending {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+}
+
 .form-control::placeholder {
     color: #888 !important;
     opacity: 1;

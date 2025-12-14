@@ -16,7 +16,6 @@ const DeleteUser = ({ show, user, onHide, onDeleteSuccess }) => {
                     wl.userId === userIdString ||
                     String(wl.userId) === String(userIdNumber) ||
                     Number(wl.userId) === Number(userIdString);
-
                 return match;
             });
 

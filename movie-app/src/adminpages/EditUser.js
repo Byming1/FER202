@@ -125,7 +125,6 @@ const EditUser = ({ show, user, onHide, onEditSuccess }) => {
                                 >
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>
-                                    <option value="suspended">Suspended</option>
                                 </Form.Select>
                             </Form.Group>
                         </>

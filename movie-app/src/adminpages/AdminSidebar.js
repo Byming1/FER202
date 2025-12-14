@@ -84,15 +84,6 @@ const AdminSidebar = ({ activePage }) => {
                 <i className="bi bi-film" style={{ marginRight: '10px' }}></i>
                 Movies
             </div>
-
-            <div style={{
-                marginBottom: '10px',
-                padding: '10px',
-                cursor: 'pointer'
-            }}>
-                <i className="bi bi-gear-fill" style={{ marginRight: '10px' }}></i>
-                Settings
-            </div>
             <div
                 onClick={() => {
                     navigate('/');
