@@ -4,20 +4,28 @@ import { useUser } from "../../context/UserContext";
 
 const Comment = ({ movieId }) => {
   const { user } = useUser();
-  const [comments, setComments] = useState([]);
+  const [movieComments, setMovieComments] = useState(null);
   const [newComment, setNewComment] = useState("");
+  const [users, setUsers] = useState([]);
 
-  // Fetch comment theo movieId
   useEffect(() => {
-    const fetchComments = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get(`/comments?movieId=${movieId}`);
-        setComments(res.data || []);
+        const [resComments, resUsers] = await Promise.all([
+          axios.get(`/comments?movieId=${movieId}`),
+          axios.get("/users")
+        ]);
+        setUsers(resUsers.data || []);
+        setMovieComments(
+          resComments.data[0] || { movieId, comments: [], id: null }
+        );
       } catch (err) {
         console.error(err);
+        setUsers([]);
+        setMovieComments({ movieId, comments: [], id: null });
       }
     };
-    fetchComments();
+    fetchData();
   }, [movieId]);
 
   const handleAddComment = async () => {
@@ -28,16 +36,30 @@ const Comment = ({ movieId }) => {
     if (!newComment.trim()) return;
 
     const commentData = {
-      movieId: Number(movieId),
-      userId: Number(user.userId),
-      username: user.username,
-      text: newComment,
-      id: Math.random().toString(16).slice(2, 6)
+      commentId: Math.random().toString(16).slice(2, 6),
+      description: newComment,
+      userId: user.userId
     };
 
     try {
-      await axios.post("/comments", commentData);
-      setComments([...comments, commentData]);
+      let updated;
+
+      if (!movieComments.id) {
+        updated = {
+          id: Math.random().toString(16).slice(2, 6),
+          movieId: Number(movieId),
+          comments: [commentData]
+        };
+        await axios.post("/comments", updated);
+      } else {
+        updated = {
+          ...movieComments,
+          comments: [...movieComments.comments, commentData]
+        };
+        await axios.put(`/comments/${movieComments.id}`, updated);
+      }
+
+      setMovieComments(updated);
       setNewComment("");
     } catch (err) {
       console.error(err);
@@ -45,22 +67,36 @@ const Comment = ({ movieId }) => {
     }
   };
 
+  if (!movieComments) return <p className="text-white">Loading comments...</p>;
+
+  const getUsername = (userId) => {
+    const found = users.find((u) => u.userId === userId);
+    return found ? found.username : `User ${userId}`;
+  };
+
   return (
-    <div className="mt-5">
-      <h4>Comments</h4>
+    <div className="container py-4" style={{ zIndex: 5 }}>
+      <h4 className="fw-bold mb-3">Comments</h4>
 
-      {(!comments || comments.length === 0) && <p>No comments yet.</p>}
+      {(!movieComments.comments || movieComments.comments.length === 0) && (
+        <p className="text-secondary">No comments yet.</p>
+      )}
 
-      {comments && comments.map((c) => (
-        <div
-          key={c.id}
-          className="mb-3 p-3 rounded"
-          style={{ backgroundColor: "#222", borderLeft: "4px solid #E50914" }}
-        >
-          <strong>{c.username}</strong>
-          <p className="mb-0">{c.text}</p>
-        </div>
-      ))}
+      {movieComments.comments &&
+        movieComments.comments.map((c) => (
+          <div
+            key={c.commentId}
+            className="mb-3 p-3 rounded"
+            style={{
+              backgroundColor: "#1c1c1c",
+              borderLeft: "4px solid #E50914",
+              color: "#fff",
+            }}
+          >
+            <strong className="d-block mb-1">{getUsername(c.userId)}</strong>
+            <p className="mb-0">{c.description}</p>
+          </div>
+        ))}
 
       <div className="mt-3 d-flex gap-2">
         <input
@@ -69,8 +105,23 @@ const Comment = ({ movieId }) => {
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
+          style={{
+            backgroundColor: "#141414",
+            border: "1px solid #333",
+            color: "#fff",
+            borderRadius: "8px",
+          }}
         />
-        <button className="btn btn-primary" onClick={handleAddComment}>
+        <button
+          className="btn"
+          onClick={handleAddComment}
+          style={{
+            backgroundColor: "#E50914",
+            color: "#fff",
+            borderRadius: "8px",
+            minWidth: "80px",
+          }}
+        >
           Post
         </button>
       </div>

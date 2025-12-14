@@ -14,30 +14,6 @@ const AdminSidebar = ({ activePage }) => {
             <h5 style={{ color: '#E50914', marginBottom: '30px' }}>ADMIN PANEL</h5>
 
             <div
-                onClick={() => navigate('/admin/dashboard')}
-                style={{
-                    marginBottom: '10px',
-                    padding: '10px',
-                    cursor: 'pointer',
-                    backgroundColor: activePage === 'dashboard' ? '#E50914' : 'transparent',
-                    borderRadius: '5px',
-                }}
-                onMouseEnter={(e) => {
-                    if (activePage !== 'dashboard') {
-                        e.currentTarget.style.backgroundColor = '#333';
-                    }
-                }}
-                onMouseLeave={(e) => {
-                    if (activePage !== 'dashboard') {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                    }
-                }}
-            >
-                <i className="bi bi-speedometer2" style={{ marginRight: '10px' }}></i>
-                Dashboard
-            </div>
-
-            <div
                 onClick={() => navigate('/admin/users')}
                 style={{
                     marginBottom: '10px',
@@ -83,15 +59,6 @@ const AdminSidebar = ({ activePage }) => {
             >
                 <i className="bi bi-film" style={{ marginRight: '10px' }}></i>
                 Movies
-            </div>
-
-            <div style={{
-                marginBottom: '10px',
-                padding: '10px',
-                cursor: 'pointer'
-            }}>
-                <i className="bi bi-gear-fill" style={{ marginRight: '10px' }}></i>
-                Settings
             </div>
             <div
                 onClick={() => {

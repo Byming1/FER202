@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { instance as axios } from "../axios/Axios";
 import FilmCard from "../components/FilmCard";
-import { Col, Row, Modal, Button } from "react-bootstrap";
+import { Col, Row, Modal } from "react-bootstrap";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Comment from "../components/Comment/Comment";
@@ -15,75 +15,109 @@ const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const [similar, setSimilar] = useState([]);
   const [showTrailer, setShowTrailer] = useState(false);
+  const [inWatchList, setInWatchList] = useState(false);
+  const [watchList, setWatchList] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const movieRes = await axios.get(`/movies/${id}`);
-      const movieData = movieRes.data;
-      setMovie(movieData);
+      try {
+        setLoading(true);
 
-      const allRes = await axios.get("/movies");
-      const similarMovies = allRes.data.filter(
-        (m) =>
-          m.id !== movieData.id &&
-          m.genres.some((g) => movieData.genres.includes(g))
-      );
-      setSimilar(similarMovies);
+        // Fetch movie
+        const movieRes = await axios.get(`/movies/${id}`);
+        const movieData = movieRes.data;
+        setMovie(movieData);
+
+        // Fetch watchlist if user logged in
+        let wl = null;
+        if (user) {
+          const res = await axios.get(`/watchList?userId=${user.userId}`);
+          wl = res.data[0] || null;
+          setWatchList(wl);
+
+          // Check if movie is in watchlist
+          if (wl) {
+            const exists = wl.movies.some(
+              (m) => Number(m.movieId) === Number(movieData.id)
+            );
+            setInWatchList(exists);
+          }
+        }
+
+        // Fetch similar movies
+        const allRes = await axios.get("/movies");
+        const similarMovies = allRes.data.filter(
+          (m) =>
+            Number(m.id) !== Number(movieData.id) &&
+            m.genres.some((g) => movieData.genres.includes(g))
+        );
+        setSimilar(similarMovies);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
-  }, [id]);
+  }, [id, user]);
 
-  const handleAddToFavorites = async () => {
+  const handleWatchList = async () => {
     if (!user) {
       alert("Please login first");
       return;
     }
 
+    const movieId = Number(movie.id);
+
     try {
-      const userId = Number(user.userId);
-      const movieId = Number(movie.id);
-
-      const res = await axios.get(`/watchList?userId=${userId}`);
-      let watchList = res.data[0];
-
-      if (!watchList) {
-        const allWatchLists = (await axios.get("/watchList")).data;
-        const maxId = allWatchLists.reduce(
-          (max, w) => (w.watchListId > max ? w.watchListId : max),
-          0
-        );
-
-        const newWatchList = {
-          watchListId: maxId + 1,
-          userId,
-          movies: [{ movieId }],
-          id: Math.random().toString(16).slice(2, 6)
-        };
-
-        await axios.post("/watchList", newWatchList);
+      if (!inWatchList) {
+        // Add to watchlist
+        if (!watchList) {
+          const allWatchLists = (await axios.get("/watchList")).data;
+          const maxId = allWatchLists.reduce(
+            (max, w) => (w.watchListId > max ? w.watchListId : max),
+            0
+          );
+          const newWatchList = {
+            watchListId: maxId + 1,
+            userId: user.userId,
+            movies: [{ movieId }],
+            id: Math.random().toString(16).slice(2, 6),
+          };
+          await axios.post("/watchList", newWatchList);
+          setWatchList(newWatchList);
+        } else {
+          const updatedMovies = [...watchList.movies, { movieId }];
+          await axios.put(`/watchList/${watchList.id}`, {
+            ...watchList,
+            movies: updatedMovies,
+          });
+          setWatchList({ ...watchList, movies: updatedMovies });
+        }
+        setInWatchList(true);
         alert("Movie added to favorites");
-        return;
+      } else {
+        // Remove from watchlist
+        const updatedMovies = watchList.movies.filter(
+          (m) => Number(m.movieId) !== movieId
+        );
+        await axios.put(`/watchList/${watchList.id}`, {
+          ...watchList,
+          movies: updatedMovies,
+        });
+        setWatchList({ ...watchList, movies: updatedMovies });
+        setInWatchList(false);
+        alert("Removed from favourites");
       }
-
-      const existed = watchList.movies.some((m) => m.movieId === movieId);
-      if (existed) {
-        alert("Movie already in favourites");
-        return;
-      }
-
-      await axios.put(`/watchList/${watchList.id}`, {
-        ...watchList,
-        movies: [...watchList.movies, { movieId }]
-      });
-
-      alert("Added to favourites");
     } catch (err) {
       console.error(err);
-      alert("Add failed");
+      alert("Operation failed");
     }
   };
 
+  if (loading) return <div className="text-white p-5">Loading...</div>;
   if (!movie) return <div className="text-white p-5">Movie not found.</div>;
 
   return (
@@ -143,10 +177,10 @@ const MovieDetail = () => {
               <button
                 className="badge btn d-flex align-items-center justify-content-center"
                 style={{ backgroundColor: "#E50914", gap: "0.5rem", minWidth: "150px" }}
-                onClick={handleAddToFavorites}
+                onClick={handleWatchList}
               >
-                <i className="bi bi-heart"></i>
-                Add to List
+                <i className={`bi ${inWatchList ? "bi-x-circle" : "bi-heart"}`}></i>
+                {inWatchList ? "Remove from List" : "Add to List"}
               </button>
 
               <button
@@ -203,7 +237,9 @@ const MovieDetail = () => {
           </div>
         </Modal.Body>
       </Modal>
-<Comment movieId={movie.id} />
+
+      <Comment movieId={movie.id} />
+
 
       <Footer />
     </div>
