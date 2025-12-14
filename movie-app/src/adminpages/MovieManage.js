@@ -11,12 +11,26 @@ import {
 } from "react-bootstrap";
 import { instance } from "../axios/Axios";
 import AdminSidebar from "./AdminSidebar";
+import Pagination from "./Pagination";
+import DeleteMovie from "./DeleteMovie";
+import EditMovie from "./EditMovie";
+import AddMovie from "./AddMovie";
 import "./UM.css";
 
 const MovieManage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [moviesPerPage] = useState(10);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [movieToDelete, setMovieToDelete] = useState(null);
+  const [movieToEdit, setMovieToEdit] = useState(null);
+  const [genreFilter, setGenreFilter] = useState("all");
+  const [yearFilter, setYearFilter] = useState("");
+  const [sortBy, setSortBy] = useState("default");
 
   useEffect(() => {
     fetchMovie();
@@ -33,11 +47,73 @@ const MovieManage = () => {
     }
   };
 
-  const filteredMovies = movies.filter(
-    (movie) =>
-      movie.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      movie.genres?.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleDeleteClick = (movie) => {
+    setMovieToDelete(movie);
+    setShowDeleteModal(true);
+  };
+
+  const handleEditClick = (movie) => {
+    setMovieToEdit(movie);
+    setShowEditModal(true);
+  };
+
+  const handleDeleteSuccess = (movieId) => {
+    const deletedMovie = movies.find(m => m.id === movieId);
+    alert(`Delete movie with title: ${deletedMovie?.title} successfully`);
+    setMovies(movies.filter(m => m.id !== movieId));
+  };
+
+  const handleEditSuccess = (movieId, updatedData) => {
+    setMovies(movies.map(m => {
+      if (m.id === movieId) {
+        return { ...m, ...updatedData };
+      }
+      return m;
+    }));
+    alert('Movie updated successfully');
+  };
+
+  const handleAddSuccess = () => {
+    fetchMovie();
+  };
+
+  const filteredMovies = movies.filter((movie) => {
+    const matchesSearch = movie.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      movie.genres?.some(g => g.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesGenre = genreFilter === "all" || movie.genres?.includes(genreFilter);
+    const matchesYear = yearFilter === "" || String(movie.year) === yearFilter;
+    return matchesSearch && matchesGenre && matchesYear;
+  });
+
+  const sortedMovies = [...filteredMovies].sort((a, b) => {
+    switch (sortBy) {
+      case "name-asc":
+        return a.title.localeCompare(b.title);
+      case "name-desc":
+        return b.title.localeCompare(a.title);
+      case "rating-asc":
+        return a.rating - b.rating;
+      case "rating-desc":
+        return b.rating - a.rating;
+      default:
+        return 0;
+    }
+  });
+
+
+
+  const totalPages = Math.ceil(sortedMovies.length / moviesPerPage);
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = sortedMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, genreFilter, yearFilter, sortBy]);
 
   if (loading) {
     return (
@@ -75,7 +151,10 @@ const MovieManage = () => {
               </InputGroup>
             </Col>
             <Col xs="auto">
-              <Button style={{ backgroundColor: "#E50914", color: "white", border: "none" }}>
+              <Button 
+                onClick={() => setShowAddModal(true)}
+                style={{ backgroundColor: "#E50914", color: "white", border: "none" }}
+              >
                 + Add New Movie
               </Button>
             </Col>
@@ -93,17 +172,69 @@ const MovieManage = () => {
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <strong>All Movies</strong>{" "}
-                    <span style={{ color: "#888", marginLeft: "20px" }}>
-                      {filteredMovies.length} movies
-                    </span>
+                    <span style={{ color: "#888" }}>{sortedMovies.length} movies</span>
                   </div>
-                  <div>
-                    <Button
-                      variant="outline-secondary"
+                  <div className="d-flex gap-2">
+                    <Form.Select
                       size="sm"
-                      className="me-2"
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      style={{
+                        backgroundColor: "#1a1a1a",
+                        border: "1px solid #444",
+                        color: "white",
+                        width: "180px",
+                      }}
                     >
-                      Filter
+                      <option value="default"> Sort By</option>
+                      <option value="name-asc"> Name (a-z)</option>
+                      <option value="name-desc"> Name (z-a)</option>
+                      <option value="rating-asc"> Rate (low to high)</option>
+                      <option value="rating-desc"> Rate (high to low)</option>
+                    </Form.Select>
+                    <Form.Control
+                      size="sm"
+                      type="number"
+                      placeholder="Filter by year"
+                      value={yearFilter}
+                      onChange={(e) => setYearFilter(e.target.value)}
+                      style={{
+                        backgroundColor: "#1a1a1a",
+                        border: "1px solid #444",
+                        color: "white",
+                        width: "150px",
+                      }}
+                    />
+                    <Form.Select
+                      size="sm"
+                      value={genreFilter}
+                      onChange={(e) => setGenreFilter(e.target.value)}
+                      style={{
+                        backgroundColor: "#1a1a1a",
+                        border: "1px solid #444",
+                        color: "white",
+                        width: "150px",
+                      }}
+                    >
+                      <option value="all">All Genres</option>
+                      <option value="Action">Action</option>
+                      <option value="Drama">Drama</option>
+                      <option value="Comedy">Comedy</option>
+                      <option value="Thriller">Thriller</option>
+                      <option value="Horror">Horror</option>
+                      <option value="Romance">Romance</option>
+                      <option value="Sci-Fi">Sci-Fi</option>
+                    </Form.Select>
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      onClick={() => {
+                        setGenreFilter("all");
+                        setYearFilter("");
+                      }}
+                      style={{ backgroundColor: "#E50914", border: "none" }}
+                    >
+                      Clear Filters
                     </Button>
                   </div>
                 </div>
@@ -123,7 +254,7 @@ const MovieManage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredMovies.map((movie) => (
+                    {currentMovies.map((movie) => (
                       <tr
                         id="table-content"
                         key={movie.id}
@@ -151,10 +282,13 @@ const MovieManage = () => {
                             {movie.rating}
                           </span>
                         </td>
-                        <td style={{ color: "#888" }}>{movie.genres.join(" - ")}</td>
+                        <td style={{ color: "#888" }}>
+                          {Array.isArray(movie.genres) ? movie.genres.join(" - ") : movie.genres}
+                        </td>
                         <td>
                           <i
                             className="bi bi-pencil-square"
+                            onClick={() => handleEditClick(movie)}
                             style={{
                               color: "white",
                               cursor: "pointer",
@@ -164,8 +298,9 @@ const MovieManage = () => {
                           ></i>
                           <i
                             className="bi bi-trash"
+                            onClick={() => handleDeleteClick(movie)}
                             style={{
-                              color: "#888",
+                              color: "#E50914",
                               cursor: "pointer",
                               fontSize: "18px",
                             }}
@@ -176,60 +311,39 @@ const MovieManage = () => {
                   </tbody>
                 </Table>
 
-                <div className="d-flex justify-content-between align-items-center mt-3">
-                  <div style={{ color: "#888" }}>
-                    Showing 1-{filteredMovies.length} of {movies.length}
-                  </div>
-                  <div>
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      className="me-2"
-                    >
-                      Previous
-                    </Button>
-                    <Button
-                      style={{ backgroundColor: "#E50914", color: "white" }}
-                      size="sm"
-                      className="me-2"
-                    >
-                      1
-                    </Button>
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      className="me-2"
-                    >
-                      2
-                    </Button>
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      className="me-2"
-                    >
-                      3
-                    </Button>
-                    <span className="me-2">...</span>
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      className="me-2"
-                    >
-                      Next
-                    </Button>
-                  </div>
-                </div>
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                  indexOfFirstItem={indexOfFirstMovie}
+                  indexOfLastItem={indexOfLastMovie}
+                  totalItems={sortedMovies.length}
+                />
               </div>
             </Col>
           </Row>
         </Container>
       </div>
 
-      <style jsx>{`
-        input::placeholder {
-          color: #888 !important;
-        }
-      `}</style>
+      <DeleteMovie
+        show={showDeleteModal}
+        movie={movieToDelete}
+        onHide={() => setShowDeleteModal(false)}
+        onDeleteSuccess={handleDeleteSuccess}
+      />
+
+      <EditMovie
+        show={showEditModal}
+        movie={movieToEdit}
+        onHide={() => setShowEditModal(false)}
+        onEditSuccess={handleEditSuccess}
+      />
+
+      <AddMovie
+        show={showAddModal}
+        onHide={() => setShowAddModal(false)}
+        onAddSuccess={handleAddSuccess}
+      />
     </div>
   );
 };
