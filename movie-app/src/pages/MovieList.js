@@ -24,6 +24,13 @@ export default function MovieList() {
     const [presentPage, setPresentPage] = useState(1);
     const [maxPage, setMaxPage] = useState(NaN);
 
+    const reset = () => {
+        setGenres("All genres");
+        setYear("All years");
+        setSearchTerm("");
+        setRating(0);
+    }
+
     // nạp data từ axios, lấy data ban đầu và lấy maxPage
     const fetchMovies = async () => {
         await instance.get("/movies").then((res) => {
@@ -63,7 +70,7 @@ export default function MovieList() {
                 movie.year === parseInt(year)
             );
         }
-        if (rating > 0) { 
+        if (rating > 0) {
             filtered = filtered.filter(movie =>
                 movie.rating >= rating
             );
@@ -145,12 +152,17 @@ export default function MovieList() {
                             </Form.Select>
                         </Col>
                     </Row>
-                    <div style={{ marginTop: "25px", marginBottom: "px" }}>
-                        <span className="text-white">Rating: </span>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }}  onClick={() => setRating(0)}>Any</Button>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(7)} active={rating === 7}>7+</Button>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(8)} active={rating === 8}>8+</Button>
-                        <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(9)} active={rating === 9}>9+</Button>
+                    <div style={{ marginTop: "25px", marginBottom: "px" }} className="d-flex justify-content-between">
+                        <div>
+                            <span className="text-white">Rating: </span>
+                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(0)}>Any</Button>
+                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(7)} active={rating === 7}>7+</Button>
+                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(8)} active={rating === 8}>8+</Button>
+                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(9)} active={rating === 9}>9+</Button>
+                        </div>
+                        <div>
+                             <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => reset()}>Reset All Field</Button>
+                        </div>
                     </div>
                 </Container>
 
