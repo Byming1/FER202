@@ -178,22 +178,17 @@
       ]
     },
     {
-      "id": "11",
       "title": "The Shawshank Redemption",
       "year": 1994,
-      "duration": 142,
       "rating": 9.3,
       "genres": [
-        "Drama"
+        "Drama",
+        "Cuong"
       ],
+      "director": "Frank Darabont",
       "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
       "image": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
-      "director": "Frank Darabont",
-      "cast": [
-        "Tim Robbins",
-        "Morgan Freeman",
-        "Bob Gunton"
-      ]
+      "id": "11"
     },
     {
       "id": "12",
@@ -1680,14 +1675,6 @@
       "status": "inactive"
     },
     {
-      "userId": 3,
-      "username": "jane_smith",
-      "email": "jane@example.com",
-      "password": "password456",
-      "role": "user",
-      "id": "e4f7"
-    },
-    {
       "userId": 4,
       "username": "mike_wilson",
       "email": "mike@example.com",
@@ -1721,61 +1708,6 @@
         }
       ],
       "id": "5752"
-    },
-    {
-      "watchListId": 2,
-      "userId": 3,
-      "movies": [
-        {
-          "movieId": 3
-        },
-        {
-          "movieId": 4
-        },
-        {
-          "movieId": 6
-        },
-        {
-          "movieId": 8
-        },
-        {
-          "movieId": 20
-        },
-        {
-          "movieId": 70
-        },
-        {
-          "movieId": 69
-        },
-        {
-          "movieId": 68
-        },
-        {
-          "movieId": 67
-        },
-        {
-          "movieId": 66
-        },
-        {
-          "movieId": 2
-        },
-        {
-          "movieId": 9
-        },
-        {
-          "movieId": 11
-        },
-        {
-          "movieId": 5
-        },
-        {
-          "movieId": 7
-        },
-        {
-          "movieId": 51
-        }
-      ],
-      "id": "4822"
     },
     {
       "watchListId": 3,
@@ -1830,6 +1762,15 @@
       "movies": [
         {
           "movieId": 1
+        },
+        {
+          "movieId": 5
+        },
+        {
+          "movieId": 2
+        },
+        {
+          "movieId": 20
         }
       ],
       "id": "cbde"

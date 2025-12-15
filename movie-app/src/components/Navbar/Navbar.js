@@ -88,7 +88,7 @@ function Navbar() {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/contact"
+              to="/"
               className="me-1"
               style={{ color: "#808080" }}
             >
