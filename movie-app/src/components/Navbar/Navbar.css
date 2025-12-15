@@ -5,6 +5,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.dropdown-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .custom-navbar .navbar-toggler {
   border-color: #808080;
 }

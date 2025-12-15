@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar as BSNavbar,
@@ -8,13 +8,32 @@ import {
   FormControl,
   Button,
   NavDropdown,
+  Dropdown,
 } from "react-bootstrap";
 import "./Navbar.css";
 import { useUser } from "../../context/UserContext";
+import { instance } from "../../axios/Axios";
 
 function Navbar() {
   const { user, logout } = useUser();
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const fetchMovies = async () => {
+    await instance.get("/movies").then((res) => {
+      setMovies(res.data);
+    });
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const filteredMovies = movies.filter((m) =>
+    m.title.toLowerCase().includes(search?.toLowerCase())
+  );
 
   const handleLogout = () => {
     logout();
@@ -24,7 +43,10 @@ function Navbar() {
     <BSNavbar
       expand="lg"
       variant="dark"
-      style={{ backgroundColor: "#0d0d0d", borderBottom: "1px solid #1a1a1a" }}
+      style={{
+        backgroundColor: "#000000",
+        borderBottom: "1px solid #1a1a1a",
+      }}
     >
       <Container>
         <BSNavbar.Brand
@@ -74,21 +96,162 @@ function Navbar() {
             </Nav.Link>
           </Nav>
 
-          <Form className="d-flex align-items-center">
-            <FormControl
-              type="search"
-              placeholder="Search movies..."
-              className="rounded-start-pill border-end-0"
-              style={{ width: "300px", backgroundColor: "#f5f5f5" }}
-              aria-label="Search"
-            />
-            <Button
-              variant="light"
-              className="rounded-end-pill border-start-0"
-              style={{ backgroundColor: "#f5f5f5", color: "#808080" }}
-            >
-              <i className="bi bi-search"></i>
-            </Button>
+          <Form className="d-flex align-items-center" style={{ gap: "15px" }}>
+            <div style={{ position: "relative" }}>
+              <FormControl
+                type="search"
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setShow(true);
+                }}
+                onBlur={() => setTimeout(() => setShow(false), 200)}
+                placeholder="Search movies..."
+                className="rounded-pill"
+                style={{
+                  width: "300px",
+                  backgroundColor: "#1a1a1a",
+                  border: "1px solid #333",
+                  color: "#ffffff",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
+                }}
+                aria-label="Search"
+              />
+              {show && search && (
+                <Dropdown.Menu
+                  show
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    width: "320px",
+                    maxHeight: "400px",
+                    overflowY: "auto",
+                    backgroundColor: "#1a1a1a",
+                    border: "1px solid #333",
+                    borderRadius: "10px",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+                    marginTop: "8px",
+                    zIndex: 1000,
+                    padding: "6px 0",
+                    scrollbarWidth: "none",
+                    msOverflowStyle: "none",
+                  }}
+                  className="dropdown-no-scrollbar"
+                >
+                  {filteredMovies.length > 0 ? (
+                    filteredMovies.map((movie) => (
+                      <Dropdown.Item
+                        key={movie.id}
+                        style={{
+                          padding: "0",
+                          borderBottom: "1px solid #2a2a2a",
+                          transition: "all 0.2s ease",
+                          backgroundColor: "transparent",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = "#2a2a2a";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = "transparent";
+                        }}
+                      >
+                        <Link
+                          to={`/movie/${movie.id}`}
+                          onClick={() => setShow(false)}
+                          style={{
+                            textDecoration: "none",
+                            color: "#ffffff",
+                            display: "flex",
+                            padding: "8px 12px",
+                            gap: "10px",
+                            alignItems: "center",
+                          }}
+                        >
+                          <img
+                            src={movie.image}
+                            alt={movie.title}
+                            style={{
+                              width: "45px",
+                              height: "65px",
+                              objectFit: "cover",
+                              borderRadius: "5px",
+                              flexShrink: 0,
+                            }}
+                          />
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "3px",
+                              flex: 1,
+                              overflow: "hidden",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontWeight: "600",
+                                fontSize: "13px",
+                                color: "#ffffff",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {movie.title}
+                            </div>
+                            <div
+                              style={{
+                                fontSize: "11px",
+                                color: "#999",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "5px",
+                              }}
+                            >
+                              <span style={{ color: "#FFD700" }}>
+                                ⭐ {movie.rating}
+                              </span>
+                              <span>•</span>
+                              <span>{movie.year}</span>
+                            </div>
+                            <div
+                              style={{
+                                fontSize: "10px",
+                                color: "#666",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {(() => {
+                                const genresText =
+                                  movie.genres?.join(", ") || "";
+                                return genresText.length > 20
+                                  ? genresText.slice(0, 20) + "..."
+                                  : genresText;
+                              })()}
+                            </div>
+                          </div>
+                        </Link>
+                      </Dropdown.Item>
+                    ))
+                  ) : (
+                    <Dropdown.Item
+                      style={{
+                        padding: "15px 12px",
+                        color: "#666",
+                        textAlign: "center",
+                        fontSize: "13px",
+                      }}
+                    >
+                      No movies found
+                    </Dropdown.Item>
+                  )}
+                </Dropdown.Menu>
+              )}
+            </div>
             {user ? (
               <NavDropdown
                 style={{ marginLeft: "10px" }}

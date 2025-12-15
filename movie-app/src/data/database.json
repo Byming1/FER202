@@ -1420,8 +1420,8 @@
       ],
       "description": "Marvel's First Family embarks on their first adventure, facing off against threats from another dimension.",
       "image": "https://tse3.mm.bing.net/th/id/OIP.hZi-EAjHBasR_7Gw1T_OCgHaK-?rs=1&pid=ImgDetMain&o=7&rm=3",
-      "backgroundImage": "https://image.tmdb.org/t/p/original/zRnJsZvV4HnDKZFxGpvOT2pLp7t.jpg",
-      "featured": false,
+      "backgroundImage": "https://charcoalcorral.com/wp-content/uploads/2025/01/FantasticFour-FirstSteps-single-630.jpg",
+      "featured": true,
       "director": "Matt Shakman",
       "cast": [
         "Pedro Pascal",
@@ -1441,7 +1441,7 @@
         "Sci-Fi"
       ],
       "description": "Jake Sully and Neytiri's family ventures to new regions of Pandora, discovering the volcanic Fire Na'vi tribe and facing new threats to their world.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMmI3OThhNjctZmYwOS00YmM3LWFjN2UtYjIxZGFhMGQ4MTcxXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_SX300.jpg",
+      "image": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-fire-and-ash-et00474771-1765165894.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/9s9o9RT9Yj6nDuRJjnJm78WFoFl.jpg",
       "featured": true,
       "director": "James Cameron",
@@ -1555,31 +1555,32 @@
       "userId": 5,
       "movies": [
         {
-          "movieId": 1
-        },
-        {
-          "movieId": 1
-        },
-        {
-          "movieId": 1
-        },
-        {
           "movieId": 69
         },
         {
           "movieId": 2
         },
         {
-          "movieId": 2
+          "movieId": 4
         },
         {
-          "movieId": 2
+          "movieId": 3
+        },
+        {
+          "movieId": 70
         },
         {
           "movieId": 1
-        },
+        }
+      ]
+    },
+    {
+      "id": "cbde",
+      "watchListId": 5,
+      "userId": 1,
+      "movies": [
         {
-          "movieId": 69
+          "movieId": 1
         }
       ]
     }
@@ -1608,6 +1609,17 @@
         {
           "commentId": "2556",
           "description": "đ",
+          "userId": 5
+        }
+      ]
+    },
+    {
+      "id": "c7fb",
+      "movieId": 2,
+      "comments": [
+        {
+          "commentId": "a9c1",
+          "description": "Phim khá ôk ",
           "userId": 5
         }
       ]
