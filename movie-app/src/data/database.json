@@ -1672,7 +1672,7 @@
       "password": "password123",
       "role": "user",
       "id": "2220",
-      "status": "inactive"
+      "status": "active"
     },
     {
       "userId": 4,
@@ -1690,6 +1690,14 @@
       "password": "123123123saA",
       "role": "user",
       "status": "active"
+    },
+    {
+      "id": "734c",
+      "userId": 5,
+      "username": "Cuongdepzai",
+      "email": "vcun2005@gmail.com",
+      "password": "123123123sA",
+      "role": "user"
     }
   ],
   "watchList": [
@@ -1732,31 +1740,6 @@
       "id": "6b8d"
     },
     {
-      "watchListId": 4,
-      "userId": 5,
-      "movies": [
-        {
-          "movieId": 69
-        },
-        {
-          "movieId": 2
-        },
-        {
-          "movieId": 4
-        },
-        {
-          "movieId": 3
-        },
-        {
-          "movieId": 70
-        },
-        {
-          "movieId": 1
-        }
-      ],
-      "id": "4c49"
-    },
-    {
       "watchListId": 5,
       "userId": 1,
       "movies": [
@@ -1785,6 +1768,22 @@
         },
         {
           "movieId": 4
+        }
+      ]
+    },
+    {
+      "id": "0787",
+      "watchListId": 7,
+      "userId": 5,
+      "movies": [
+        {
+          "movieId": 2
+        },
+        {
+          "movieId": 8
+        },
+        {
+          "movieId": 9
         }
       ]
     }
