@@ -5,6 +5,7 @@ import AdminSidebar from './AdminSidebar';
 import Pagination from './Pagination';
 import DeleteUser from './DeleteUser';
 import EditUser from './EditUser';
+import AddUser from './AddUser';
 import './UM.css';
 
 const UserManage = () => {
@@ -15,8 +16,11 @@ const UserManage = () => {
     const [usersPerPage] = useState(10);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
+    const [showAddModal, setShowAddModal] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
     const [userToEdit, setUserToEdit] = useState(null);
+    const [roleFilter, setRoleFilter] = useState('all');
+    const [statusFilter, setStatusFilter] = useState('all');
 
     useEffect(() => {
         fetchUsers();
@@ -59,10 +63,18 @@ const UserManage = () => {
         alert('User updated successfully');
     };
 
-    const filteredUsers = users.filter(user =>
-        user.username?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        user.email?.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const handleAddSuccess = () => {
+        fetchUsers();
+    };
+
+    const filteredUsers = users.filter(user => {
+        const matchesSearch = user.username?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            user.email?.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesRole = roleFilter === 'all' || user.role === roleFilter;
+        const matchesStatus = statusFilter === 'all' || (user.status || 'active') === statusFilter;
+
+        return matchesSearch && matchesRole && matchesStatus;
+    });
 
     const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
     const indexOfLastUser = currentPage * usersPerPage;
@@ -75,7 +87,7 @@ const UserManage = () => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchQuery]);
+    }, [searchQuery, roleFilter, statusFilter]);
 
     if (loading) {
         return <div style={{ color: 'white', textAlign: 'center', padding: '40px' }}>Loading...</div>;
@@ -107,7 +119,10 @@ const UserManage = () => {
                             </InputGroup>
                         </Col>
                         <Col xs="auto">
-                            <Button style={{ backgroundColor: '#E50914', color: 'white', border: 'none' }}>
+                            <Button
+                                onClick={() => setShowAddModal(true)}
+                                style={{ backgroundColor: '#E50914', color: 'white', border: 'none' }}
+                            >
                                 + Add New User
                             </Button>
                         </Col>
@@ -124,11 +139,37 @@ const UserManage = () => {
                                     <div>
                                         <strong>All Users</strong> <span style={{ color: '#888' }}>{filteredUsers.length} users</span>
                                     </div>
-                                    <div>
-                                        <Button variant="outline-secondary" size="sm" className="me-2">
-                                            <i className="bi bi-funnel-fill" style={{ marginRight: '5px' }}></i>
-                                            Filter
-                                        </Button>
+                                    <div className="d-flex gap-2">
+                                        <Form.Select
+                                            size="sm"
+                                            value={roleFilter}
+                                            onChange={(e) => setRoleFilter(e.target.value)}
+                                            style={{
+                                                backgroundColor: '#1a1a1a',
+                                                border: '1px solid #444',
+                                                color: 'white',
+                                                width: '150px'
+                                            }}
+                                        >
+                                            <option value="all">All Roles</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">User</option>
+                                        </Form.Select>
+                                        <Form.Select
+                                            size="sm"
+                                            value={statusFilter}
+                                            onChange={(e) => setStatusFilter(e.target.value)}
+                                            style={{
+                                                backgroundColor: '#1a1a1a',
+                                                border: '1px solid #444',
+                                                color: 'white',
+                                                width: '150px'
+                                            }}
+                                        >
+                                            <option value="all">All Status</option>
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </Form.Select>
                                     </div>
                                 </div>
 
@@ -174,7 +215,14 @@ const UserManage = () => {
                                                     </Badge>
                                                 </td>
                                                 <td>
-                                                    <Badge bg={(user.status || 'active') === 'active' ? 'success' : user.status === 'inactive' ? 'secondary' : 'warning'}>
+                                                    <Badge
+                                                        bg=""
+                                                        className={
+                                                            (user.status || 'active') === 'active' ? 'badge-active' :
+                                                                user.status === 'inactive' ? 'badge-inactive' :
+                                                                    'badge-pending'
+                                                        }
+                                                    >
                                                         {user.status || 'Active'}
                                                     </Badge>
                                                 </td>
@@ -232,6 +280,12 @@ const UserManage = () => {
                 user={userToEdit}
                 onHide={() => setShowEditModal(false)}
                 onEditSuccess={handleEditSuccess}
+            />
+
+            <AddUser
+                show={showAddModal}
+                onHide={() => setShowAddModal(false)}
+                onAddSuccess={handleAddSuccess}
             />
         </div>
     );

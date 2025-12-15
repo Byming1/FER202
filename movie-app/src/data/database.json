@@ -45,27 +45,6 @@
       ]
     },
     {
-      "id": "3",
-      "title": "Parasite",
-      "year": 2019,
-      "duration": 132,
-      "rating": 8.6,
-      "genres": [
-        "Drama",
-        "Thriller"
-      ],
-      "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-      "image": "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
-      "backgroundImage": "https://image.tmdb.org/t/p/original/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
-      "featured": true,
-      "director": "Bong Joon Ho",
-      "cast": [
-        "Song Kang-ho",
-        "Lee Sun-kyun",
-        "Cho Yeo-jeong"
-      ]
-    },
-    {
       "id": "4",
       "title": "Knives Out",
       "year": 2019,
@@ -1420,8 +1399,8 @@
       ],
       "description": "Marvel's First Family embarks on their first adventure, facing off against threats from another dimension.",
       "image": "https://tse3.mm.bing.net/th/id/OIP.hZi-EAjHBasR_7Gw1T_OCgHaK-?rs=1&pid=ImgDetMain&o=7&rm=3",
-      "backgroundImage": "https://image.tmdb.org/t/p/original/zRnJsZvV4HnDKZFxGpvOT2pLp7t.jpg",
-      "featured": false,
+      "backgroundImage": "https://charcoalcorral.com/wp-content/uploads/2025/01/FantasticFour-FirstSteps-single-630.jpg",
+      "featured": true,
       "director": "Matt Shakman",
       "cast": [
         "Pedro Pascal",
@@ -1441,7 +1420,7 @@
         "Sci-Fi"
       ],
       "description": "Jake Sully and Neytiri's family ventures to new regions of Pandora, discovering the volcanic Fire Na'vi tribe and facing new threats to their world.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMmI3OThhNjctZmYwOS00YmM3LWFjN2UtYjIxZGFhMGQ4MTcxXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_SX300.jpg",
+      "image": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-fire-and-ash-et00474771-1765165894.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/9s9o9RT9Yj6nDuRJjnJm78WFoFl.jpg",
       "featured": true,
       "director": "James Cameron",
@@ -1462,20 +1441,28 @@
       "id": "ee4d"
     },
     {
-      "userId": 3,
+      "userId": 2,
       "username": "john_doe",
       "email": "john@example.com",
       "password": "password123",
       "role": "user",
-      "id": "22202"
+      "id": "2220"
+    },
+    {
+      "userId": 3,
+      "username": "jane_smith",
+      "email": "jane@example.com",
+      "password": "password456",
+      "role": "user",
+      "id": "e4f7"
     },
     {
       "userId": 4,
-      "username": "john_doe2",
-      "email": "john@2example.com",
-      "password": "password123",
+      "username": "mike_wilson",
+      "email": "mike@example.com",
+      "password": "password789",
       "role": "user",
-      "id": "222202"
+      "id": "d2e4"
     },
     {
       "id": "9c93",
@@ -1487,6 +1474,22 @@
     }
   ],
   "watchList": [
+    {
+      "watchListId": 1,
+      "userId": 2,
+      "movies": [
+        {
+          "movieId": 1
+        },
+        {
+          "movieId": 2
+        },
+        {
+          "movieId": 5
+        }
+      ],
+      "id": "5752"
+    },
     {
       "watchListId": 2,
       "userId": 3,
@@ -1556,10 +1559,89 @@
           "movieId": 10
         },
         {
+<<<<<<< HEAD
           "movieId": 6
+=======
+          "movieId": 68
+>>>>>>> 24714cbd92305528c0e57c90d113fb78ff70c89c
         }
       ],
       "id": "6b8d"
+    },
+    {
+      "id": "4c49",
+      "watchListId": 4,
+      "userId": 5,
+      "movies": [
+        {
+          "movieId": 69
+        },
+        {
+          "movieId": 2
+        },
+        {
+          "movieId": 4
+        },
+        {
+          "movieId": 3
+        },
+        {
+          "movieId": 70
+        },
+        {
+          "movieId": 1
+        }
+      ]
+    },
+    {
+      "id": "cbde",
+      "watchListId": 5,
+      "userId": 1,
+      "movies": [
+        {
+          "movieId": 1
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "6b8d",
+      "movieId": 1,
+      "comments": [
+        {
+          "commentId": "c1",
+          "description": "Great movie!",
+          "userId": 2
+        },
+        {
+          "commentId": "c2",
+          "description": "I loved the action scenes.",
+          "userId": 1
+        }
+      ]
+    },
+    {
+      "id": "fb10",
+      "movieId": 3,
+      "comments": [
+        {
+          "commentId": "2556",
+          "description": "đ",
+          "userId": 5
+        }
+      ]
+    },
+    {
+      "id": "c7fb",
+      "movieId": 2,
+      "comments": [
+        {
+          "commentId": "a9c1",
+          "description": "Phim khá ôk ",
+          "userId": 5
+        }
+      ]
     }
   ]
 }

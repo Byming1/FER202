@@ -1,33 +1,28 @@
 import { Modal, Button } from 'react-bootstrap';
 import { instance } from '../axios/Axios';
 
-const DeleteUser = ({ show, user, onHide, onDeleteSuccess }) => {
+const DeleteMovie = ({ show, movie, onHide, onDeleteSuccess }) => {
     const handleDeleteConfirm = async () => {
         try {
-            const userIdString = user.id || user.userId;
-            const userIdNumber = user.userId || Number(user.id);
+            const movieId = movie.id;
 
-            await instance.delete(`/users/${userIdString}`);
+            await instance.delete(`/movies/${movieId}`);
 
             const watchListResponse = await instance.get('/watchList');
+            const movieWatchLists = watchListResponse.data.filter(wl => 
+                wl.movieId === movieId || 
+                String(wl.movieId) === String(movieId)
+            );
 
-            const userWatchLists = watchListResponse.data.filter(wl => {
-                const match = wl.userId === userIdNumber ||
-                    wl.userId === userIdString ||
-                    String(wl.userId) === String(userIdNumber) ||
-                    Number(wl.userId) === Number(userIdString);
-                return match;
-            });
-
-            for (const watchList of userWatchLists) {
+            for (const watchList of movieWatchLists) {
                 await instance.delete(`/watchList/${watchList.id}`);
             }
 
-            onDeleteSuccess(userIdString);
+            onDeleteSuccess(movieId);
             onHide();
         } catch (error) {
-            console.error('Error deleting user:', error);
-            alert('Failed to delete user.');
+            console.error('Error deleting movie:', error);
+            alert('Failed to delete movie.');
         }
     };
 
@@ -48,7 +43,7 @@ const DeleteUser = ({ show, user, onHide, onDeleteSuccess }) => {
                 <Modal.Title>Confirm Delete</Modal.Title>
             </Modal.Header>
             <Modal.Body style={{ backgroundColor: '#1a1a1a', color: 'white' }}>
-                Are you sure you want to delete user <strong>{user?.username}</strong>?
+                Are you sure you want to delete movie <strong>{movie?.title}</strong>?
                 <br />
                 <small style={{ color: '#888' }}>This action cannot be undone. All watchlist data will also be deleted.</small>
             </Modal.Body>
@@ -72,4 +67,4 @@ const DeleteUser = ({ show, user, onHide, onDeleteSuccess }) => {
     );
 };
 
-export default DeleteUser;
+export default DeleteMovie;
