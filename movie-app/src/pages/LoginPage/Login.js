@@ -22,6 +22,10 @@ function Login() {
       const foundUser = response.data.find(
         (user) => user.email === email && user.password === password
       );
+      if (foundUser.status === "inactive") {
+        alert("Your account is inactive. Please contact support.");
+        return;
+      }
       if (foundUser) {
         login(foundUser);
         navigate("/");
