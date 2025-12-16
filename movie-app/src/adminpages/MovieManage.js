@@ -47,6 +47,12 @@ const MovieManage = () => {
     }
   };
 
+  const getMovies = () => {
+    if (movies && movies.length > 0) {
+      return movies.length;
+    }
+  };
+
   const handleDeleteClick = (movie) => {
     setMovieToDelete(movie);
     setShowDeleteModal(true);
@@ -58,19 +64,21 @@ const MovieManage = () => {
   };
 
   const handleDeleteSuccess = (movieId) => {
-    const deletedMovie = movies.find(m => m.id === movieId);
+    const deletedMovie = movies.find((m) => m.id === movieId);
     alert(`Delete movie with title: ${deletedMovie?.title} successfully`);
-    setMovies(movies.filter(m => m.id !== movieId));
+    setMovies(movies.filter((m) => m.id !== movieId));
   };
 
   const handleEditSuccess = (movieId, updatedData) => {
-    setMovies(movies.map(m => {
-      if (m.id === movieId) {
-        return { ...m, ...updatedData };
-      }
-      return m;
-    }));
-    alert('Movie updated successfully');
+    setMovies(
+      movies.map((m) => {
+        if (m.id === movieId) {
+          return { ...m, ...updatedData };
+        }
+        return m;
+      })
+    );
+    alert("Movie updated successfully");
   };
 
   const handleAddSuccess = () => {
@@ -78,9 +86,13 @@ const MovieManage = () => {
   };
 
   const filteredMovies = movies.filter((movie) => {
-    const matchesSearch = movie.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      movie.genres?.some(g => g.toLowerCase().includes(searchQuery.toLowerCase()));
-    const matchesGenre = genreFilter === "all" || movie.genres?.includes(genreFilter);
+    const matchesSearch =
+      movie.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      movie.genres?.some((g) =>
+        g.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    const matchesGenre =
+      genreFilter === "all" || movie.genres?.includes(genreFilter);
     const matchesYear = yearFilter === "" || String(movie.year) === yearFilter;
     return matchesSearch && matchesGenre && matchesYear;
   });
@@ -99,8 +111,6 @@ const MovieManage = () => {
         return 0;
     }
   });
-
-
 
   const totalPages = Math.ceil(sortedMovies.length / moviesPerPage);
   const indexOfLastMovie = currentPage * moviesPerPage;
@@ -151,9 +161,13 @@ const MovieManage = () => {
               </InputGroup>
             </Col>
             <Col xs="auto">
-              <Button 
+              <Button
                 onClick={() => setShowAddModal(true)}
-                style={{ backgroundColor: "#E50914", color: "white", border: "none" }}
+                style={{
+                  backgroundColor: "#E50914",
+                  color: "white",
+                  border: "none",
+                }}
               >
                 + Add New Movie
               </Button>
@@ -172,7 +186,9 @@ const MovieManage = () => {
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <strong>All Movies</strong>{" "}
-                    <span style={{ color: "#888" }}>{sortedMovies.length} movies</span>
+                    <span style={{ color: "#888" }}>
+                      {sortedMovies.length} movies
+                    </span>
                   </div>
                   <div className="d-flex gap-2">
                     <Form.Select
@@ -283,7 +299,9 @@ const MovieManage = () => {
                           </span>
                         </td>
                         <td style={{ color: "#888" }}>
-                          {Array.isArray(movie.genres) ? movie.genres.join(" - ") : movie.genres}
+                          {Array.isArray(movie.genres)
+                            ? movie.genres.join(" - ")
+                            : movie.genres}
                         </td>
                         <td>
                           <i
@@ -343,6 +361,9 @@ const MovieManage = () => {
         show={showAddModal}
         onHide={() => setShowAddModal(false)}
         onAddSuccess={handleAddSuccess}
+        nextId={
+          movies.length > 0 ? Math.max(...movies.map((m) => m.id)) + 1 : 1
+        }
       />
     </div>
   );

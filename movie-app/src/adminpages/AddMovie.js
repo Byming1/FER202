@@ -1,8 +1,9 @@
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { instance } from '../axios/Axios';
+import MovieManage, { mvl } from './MovieManage';
 
-const AddMovie = ({ show, onHide, onAddSuccess }) => {
+const AddMovie = ({ show, onHide, onAddSuccess, nextId }) => {
     const [formData, setFormData] = useState({
         title: '',
         year: '',
@@ -20,6 +21,8 @@ const AddMovie = ({ show, onHide, onAddSuccess }) => {
             [name]: value
         }));
     };
+ 
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,6 +33,7 @@ const AddMovie = ({ show, onHide, onAddSuccess }) => {
                 .filter(g => g);
 
             const newMovie = {
+                id: nextId,
                 title: formData.title,
                 year: Number(formData.year),
                 rating: Number(formData.rating),
