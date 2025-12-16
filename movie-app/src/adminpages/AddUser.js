@@ -40,8 +40,12 @@ const AddUser = ({ show, onHide, onAddSuccess }) => {
                 return;
             }
 
+            const maxUserId = users.length > 0
+                ? Math.max(...users.map(user => user.userId))
+                : 0;
+
             const formData = {
-                userId: users.length + 1,
+                userId: maxUserId + 1,
                 username: username,
                 email: email,
                 password: password,
