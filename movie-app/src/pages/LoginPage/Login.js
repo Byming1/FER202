@@ -10,25 +10,42 @@ function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const { login } = useUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setEmailError("");
+    setPasswordError("");
     console.log("Login attempt:", { email, password });
 
     try {
       const response = await instance.get("/users");
+      if (email.trim() === "" && password.trim() === "") {
+        setEmailError("Please enter your email");
+        setPasswordError("Please enter your password");
+        return;
+      }
+      if (email.trim() === "") {
+        setEmailError("Please enter your email");
+        return;
+      }
+      if (password.trim() === "") {
+        setPasswordError("Please enter your password");
+        return;
+      }
       const foundEmail = response.data.find((user) => user.email === email);
       if (!foundEmail) {
-        alert("This account not found, Please create an account?");
+        setEmailError("This account not found, Please create an account?");
         return;
       }
       const foundUser = response.data.find(
         (user) => user.email === email && user.password === password
       );
       if (foundUser.status === "inactive") {
-        alert("Your account is inactive. Please contact support.");
+        setEmailError("Your account is inactive. Please contact support.");
         return;
       }
       if (foundUser) {
@@ -36,11 +53,11 @@ function Login() {
         navigate("/");
         return foundUser;
       } else {
-        alert("Invalid email or password");
+        setPasswordError("Invalid email or password");
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert("Invalid email or password. Please try again.");
+      setPasswordError("Invalid email or password. Please try again.");
       return null;
     }
   };
@@ -114,7 +131,6 @@ function Login() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
                 style={{
                   backgroundColor: "#1E1E1E",
                   border: "1px solid #3a3a3a",
@@ -124,6 +140,18 @@ function Login() {
                   fontSize: "0.875rem",
                 }}
               />
+              {emailError && (
+                <p
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.875rem",
+                    marginTop: "5px",
+                    marginBottom: "0",
+                  }}
+                >
+                  {emailError}
+                </p>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3" style={{ position: "relative" }}>
@@ -142,7 +170,6 @@ function Login() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
                 style={{
                   backgroundColor: "#1E1E1E",
                   border: "1px solid #3a3a3a",
@@ -167,6 +194,18 @@ function Login() {
                   className={showPassword ? "bi bi-eye-slash" : "bi bi-eye"}
                 ></i>
               </span>
+              {passwordError && (
+                <p
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.875rem",
+                    marginTop: "5px",
+                    marginBottom: "0",
+                  }}
+                >
+                  {passwordError}
+                </p>
+              )}
             </Form.Group>
 
             <div

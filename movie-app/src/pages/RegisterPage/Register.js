@@ -11,6 +11,12 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState({
+    username: null,
+    email: null,
+    password: null,
+    confirmPassword: null,
+  });
 
   const validatePassword = (pass) => {
     const minLength = pass.length >= 6;
@@ -34,26 +40,42 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validatePassword(password)) {
-      alert(
-        "Password must be at least 6 characters and contain at least one uppercase letter and one number!"
-      );
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
     const emailExists = users.some((user) => user.email === email);
-    if (emailExists) {
-      alert("Email is already registered!");
-      return;
-    }
     const usernameExists = users.some((user) => user.username === username);
-    if (usernameExists) {
-      alert("Username is already taken!");
+
+    setError({
+      username: !username.trim()
+        ? "Username is required!"
+        : usernameExists
+        ? "Username is already taken!"
+        : null,
+      email: !email.trim()
+        ? "Email is required!"
+        : emailExists
+        ? "Email is already registered!"
+        : null,
+      password: !password.trim()
+        ? "Password is required!"
+        : !validatePassword(password)
+        ? "Password must be at least 6 characters and contain at least one uppercase letter and one number!"
+        : null,
+      confirmPassword: !confirmPassword.trim()
+        ? "Confirm password is required!"
+        : password !== confirmPassword
+        ? "Passwords do not match!"
+        : null,
+    });
+
+    if (
+      !username.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim() ||
+      usernameExists ||
+      emailExists ||
+      !validatePassword(password) ||
+      password !== confirmPassword
+    ) {
       return;
     }
 
@@ -66,8 +88,8 @@ function Register() {
     };
 
     await instance.post("/users", formData).then((res) => {
-      alert("Registration successful! Please log in.");
       window.location.href = "/login";
+      alert("Register successful! Please log in.");
     });
     console.log("Register attempt:", { username, email, password });
   };
@@ -141,7 +163,6 @@ function Register() {
                 placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
                 style={{
                   backgroundColor: "#1E1E1E",
                   border: "1px solid #3a3a3a",
@@ -151,6 +172,18 @@ function Register() {
                   fontSize: "0.875rem",
                 }}
               />
+              {error.username && (
+                <p
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.875rem",
+                    marginTop: "5px",
+                    marginBottom: "0",
+                  }}
+                >
+                  {error.username}
+                </p>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -169,7 +202,6 @@ function Register() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
                 style={{
                   backgroundColor: "#1E1E1E",
                   border: "1px solid #3a3a3a",
@@ -179,6 +211,18 @@ function Register() {
                   fontSize: "0.875rem",
                 }}
               />
+              {error.email && (
+                <p
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.875rem",
+                    marginTop: "5px",
+                    marginBottom: "0",
+                  }}
+                >
+                  {error.email}
+                </p>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3" style={{ position: "relative" }}>
@@ -197,7 +241,6 @@ function Register() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
                 style={{
                   backgroundColor: "#1E1E1E",
                   border: "1px solid #3a3a3a",
@@ -222,6 +265,18 @@ function Register() {
                   className={showPassword ? "bi bi-eye-slash" : "bi bi-eye"}
                 ></i>
               </span>
+              {error.password && (
+                <p
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.875rem",
+                    marginTop: "5px",
+                    marginBottom: "0",
+                  }}
+                >
+                  {error.password}
+                </p>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3" style={{ position: "relative" }}>
@@ -240,7 +295,6 @@ function Register() {
                 placeholder="Confirm your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                required
                 style={{
                   backgroundColor: "#1E1E1E",
                   border: "1px solid #3a3a3a",
@@ -267,6 +321,18 @@ function Register() {
                   }
                 ></i>
               </span>
+              {error.confirmPassword && (
+                <p
+                  style={{
+                    color: "#E50914",
+                    fontSize: "0.875rem",
+                    marginTop: "5px",
+                    marginBottom: "0",
+                  }}
+                >
+                  {error.confirmPassword}
+                </p>
+              )}
             </Form.Group>
 
             <Button
