@@ -1723,14 +1723,6 @@
       "email": "ahahha1@j.com",
       "password": "1231232sA",
       "role": "user"
-    },
-    {
-      "id": "764c",
-      "userId": 7,
-      "username": "Hoàng Hoa Thám",
-      "email": "htt192@gmail.com",
-      "password": "123123123sA",
-      "role": "user"
     }
   ],
   "watchList": [
