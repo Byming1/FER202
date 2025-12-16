@@ -19,9 +19,18 @@ function Login() {
 
     try {
       const response = await instance.get("/users");
+      const foundEmail = response.data.find((user) => user.email === email);
+      if (!foundEmail) {
+        alert("This account not found, Please create an account?");
+        return;
+      }
       const foundUser = response.data.find(
         (user) => user.email === email && user.password === password
       );
+      if (foundUser.status === "inactive") {
+        alert("Your account is inactive. Please contact support.");
+        return;
+      }
       if (foundUser) {
         login(foundUser);
         navigate("/");
@@ -31,7 +40,7 @@ function Login() {
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert("Login failed. Please try again.");
+      alert("Invalid email or password. Please try again.");
       return null;
     }
   };
