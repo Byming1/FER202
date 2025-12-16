@@ -1,26 +1,14 @@
 {
   "movies": [
     {
-      "id": "1",
-      "title": "The Dark Knight",
+      "title": "The Dark Knight 1",
       "year": 2008,
-      "duration": 152,
       "rating": 9,
-      "genres": [
-        "Action",
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Action", "Crime", "Drama"],
+      "director": "Christopher Nolan",
       "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
       "image": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
-      "backgroundImage": "https://image.tmdb.org/t/p/original/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg",
-      "featured": true,
-      "director": "Christopher Nolan",
-      "cast": [
-        "Christian Bale",
-        "Heath Ledger",
-        "Aaron Eckhart"
-      ]
+      "id": "1"
     },
     {
       "id": "2",
@@ -28,21 +16,13 @@
       "year": 2010,
       "duration": 148,
       "rating": 8.8,
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Thriller"
-      ],
+      "genres": ["Action", "Sci-Fi", "Thriller"],
       "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
       "featured": true,
       "director": "Christopher Nolan",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Joseph Gordon-Levitt",
-        "Ellen Page"
-      ]
+      "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]
     },
     {
       "id": "4",
@@ -50,19 +30,11 @@
       "year": 2019,
       "duration": 130,
       "rating": 7.9,
-      "genres": [
-        "Comedy",
-        "Crime",
-        "Mystery"
-      ],
+      "genres": ["Comedy", "Crime", "Mystery"],
       "description": "A detective investigates the death of a patriarch of an eccentric, combative family.",
       "image": "https://m.media-amazon.com/images/M/MV5BMGUwZjliMTAtNzAxZi00MWNiLWE2NzgtZGUxMGQxZjhhNDRiXkEyXkFqcGdeQXVyNjU1NzU3MzE@._V1_SX300.jpg",
       "director": "Rian Johnson",
-      "cast": [
-        "Daniel Craig",
-        "Chris Evans",
-        "Ana de Armas"
-      ]
+      "cast": ["Daniel Craig", "Chris Evans", "Ana de Armas"]
     },
     {
       "id": "5",
@@ -70,19 +42,11 @@
       "year": 2018,
       "duration": 127,
       "rating": 7.3,
-      "genres": [
-        "Drama",
-        "Horror",
-        "Mystery"
-      ],
+      "genres": ["Drama", "Horror", "Mystery"],
       "description": "A grieving family is haunted by tragic and disturbing occurrences.",
       "image": "https://m.media-amazon.com/images/I/715S7D8QY2L._AC_SY445_.jpg",
       "director": "Ari Aster",
-      "cast": [
-        "Toni Collette",
-        "Alex Wolff",
-        "Milly Shapiro"
-      ]
+      "cast": ["Toni Collette", "Alex Wolff", "Milly Shapiro"]
     },
     {
       "id": "6",
@@ -90,18 +54,11 @@
       "year": 1972,
       "duration": 175,
       "rating": 9.2,
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Crime", "Drama"],
       "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
       "image": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "director": "Francis Ford Coppola",
-      "cast": [
-        "Marlon Brando",
-        "Al Pacino",
-        "James Caan"
-      ]
+      "cast": ["Marlon Brando", "Al Pacino", "James Caan"]
     },
     {
       "id": "7",
@@ -109,18 +66,11 @@
       "year": 2012,
       "duration": 165,
       "rating": 8.4,
-      "genres": [
-        "Drama",
-        "Western"
-      ],
+      "genres": ["Drama", "Western"],
       "description": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX300.jpg",
       "director": "Quentin Tarantino",
-      "cast": [
-        "Jamie Foxx",
-        "Christoph Waltz",
-        "Leonardo DiCaprio"
-      ]
+      "cast": ["Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio"]
     },
     {
       "id": "8",
@@ -128,20 +78,13 @@
       "year": 2003,
       "duration": 201,
       "rating": 8.9,
-      "genres": [
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Adventure", "Fantasy"],
       "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
       "image": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/2u7zbn8EudG6kLlBzUYqP8RyFU4.jpg",
       "featured": true,
       "director": "Peter Jackson",
-      "cast": [
-        "Elijah Wood",
-        "Viggo Mortensen",
-        "Ian McKellen"
-      ]
+      "cast": ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"]
     },
     {
       "id": "9",
@@ -149,21 +92,13 @@
       "year": 2018,
       "duration": 117,
       "rating": 8.4,
-      "genres": [
-        "Action",
-        "Animation",
-        "Adventure"
-      ],
+      "genres": ["Action", "Animation", "Adventure"],
       "description": "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_SX300.jpg",
       "backgroundImage": "https://sin.ie/wp-content/uploads/2019/01/14739641_web1_spiderverse-sea.jpg",
       "featured": true,
       "director": "Bob Persichetti",
-      "cast": [
-        "Shameik Moore",
-        "Jake Johnson",
-        "Hailee Steinfeld"
-      ]
+      "cast": ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld"]
     },
     {
       "id": "10",
@@ -171,37 +106,21 @@
       "year": 2016,
       "duration": 128,
       "rating": 8,
-      "genres": [
-        "Comedy",
-        "Drama",
-        "Music"
-      ],
+      "genres": ["Comedy", "Drama", "Music"],
       "description": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
       "image": "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg",
       "director": "Damien Chazelle",
-      "cast": [
-        "Ryan Gosling",
-        "Emma Stone",
-        "Rosemarie DeWitt"
-      ]
+      "cast": ["Ryan Gosling", "Emma Stone", "Rosemarie DeWitt"]
     },
     {
-      "id": "11",
       "title": "The Shawshank Redemption",
       "year": 1994,
-      "duration": 142,
       "rating": 9.3,
-      "genres": [
-        "Drama"
-      ],
+      "genres": ["Drama", "Cuong"],
+      "director": "Frank Darabont",
       "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
       "image": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
-      "director": "Frank Darabont",
-      "cast": [
-        "Tim Robbins",
-        "Morgan Freeman",
-        "Bob Gunton"
-      ]
+      "id": "11"
     },
     {
       "id": "12",
@@ -209,18 +128,11 @@
       "year": 1994,
       "duration": 154,
       "rating": 8.9,
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Crime", "Drama"],
       "description": "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
       "image": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "director": "Quentin Tarantino",
-      "cast": [
-        "John Travolta",
-        "Uma Thurman",
-        "Samuel L. Jackson"
-      ]
+      "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"]
     },
     {
       "id": "13",
@@ -228,18 +140,11 @@
       "year": 1994,
       "duration": 142,
       "rating": 8.8,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Drama", "Romance"],
       "description": "The presidencies of Kennedy and Johnson, the Vietnam War, and other historical events unfold from the perspective of an Alabama man.",
       "image": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "director": "Robert Zemeckis",
-      "cast": [
-        "Tom Hanks",
-        "Robin Wright",
-        "Gary Sinise"
-      ]
+      "cast": ["Tom Hanks", "Robin Wright", "Gary Sinise"]
     },
     {
       "id": "14",
@@ -247,18 +152,11 @@
       "year": 1999,
       "duration": 136,
       "rating": 8.7,
-      "genres": [
-        "Action",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Sci-Fi"],
       "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
       "image": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "director": "Lana Wachowski",
-      "cast": [
-        "Keanu Reeves",
-        "Laurence Fishburne",
-        "Carrie-Anne Moss"
-      ]
+      "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"]
     },
     {
       "id": "15",
@@ -266,19 +164,11 @@
       "year": 2014,
       "duration": 169,
       "rating": 8.6,
-      "genres": [
-        "Adventure",
-        "Drama",
-        "Sci-Fi"
-      ],
+      "genres": ["Adventure", "Drama", "Sci-Fi"],
       "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
       "image": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "director": "Christopher Nolan",
-      "cast": [
-        "Matthew McConaughey",
-        "Anne Hathaway",
-        "Jessica Chastain"
-      ]
+      "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"]
     },
     {
       "id": "16",
@@ -286,17 +176,11 @@
       "year": 1999,
       "duration": 139,
       "rating": 8.8,
-      "genres": [
-        "Drama"
-      ],
+      "genres": ["Drama"],
       "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
       "image": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
       "director": "David Fincher",
-      "cast": [
-        "Brad Pitt",
-        "Edward Norton",
-        "Helena Bonham Carter"
-      ]
+      "cast": ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"]
     },
     {
       "id": "17",
@@ -304,18 +188,11 @@
       "year": 1990,
       "duration": 146,
       "rating": 8.7,
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Crime", "Drama"],
       "description": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners.",
       "image": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "director": "Martin Scorsese",
-      "cast": [
-        "Robert De Niro",
-        "Ray Liotta",
-        "Joe Pesci"
-      ]
+      "cast": ["Robert De Niro", "Ray Liotta", "Joe Pesci"]
     },
     {
       "id": "18",
@@ -323,19 +200,11 @@
       "year": 1991,
       "duration": 118,
       "rating": 8.6,
-      "genres": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
+      "genres": ["Crime", "Drama", "Thriller"],
       "description": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.",
       "image": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "director": "Jonathan Demme",
-      "cast": [
-        "Jodie Foster",
-        "Anthony Hopkins",
-        "Lawrence A. Bonney"
-      ]
+      "cast": ["Jodie Foster", "Anthony Hopkins", "Lawrence A. Bonney"]
     },
     {
       "id": "19",
@@ -343,18 +212,11 @@
       "year": 1998,
       "duration": 169,
       "rating": 8.6,
-      "genres": [
-        "Drama",
-        "War"
-      ],
+      "genres": ["Drama", "War"],
       "description": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed.",
       "image": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
       "director": "Steven Spielberg",
-      "cast": [
-        "Tom Hanks",
-        "Matt Damon",
-        "Tom Sizemore"
-      ]
+      "cast": ["Tom Hanks", "Matt Damon", "Tom Sizemore"]
     },
     {
       "id": "20",
@@ -362,19 +224,11 @@
       "year": 1993,
       "duration": 195,
       "rating": 9,
-      "genres": [
-        "Biography",
-        "Drama",
-        "History"
-      ],
+      "genres": ["Biography", "Drama", "History"],
       "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce.",
       "image": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "director": "Steven Spielberg",
-      "cast": [
-        "Liam Neeson",
-        "Ralph Fiennes",
-        "Ben Kingsley"
-      ]
+      "cast": ["Liam Neeson", "Ralph Fiennes", "Ben Kingsley"]
     },
     {
       "id": "21",
@@ -382,19 +236,11 @@
       "year": 2006,
       "duration": 151,
       "rating": 8.5,
-      "genres": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
+      "genres": ["Crime", "Drama", "Thriller"],
       "description": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.",
       "image": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SX300.jpg",
       "director": "Martin Scorsese",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Matt Damon",
-        "Jack Nicholson"
-      ]
+      "cast": ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"]
     },
     {
       "id": "22",
@@ -402,19 +248,11 @@
       "year": 2000,
       "duration": 155,
       "rating": 8.5,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Action", "Adventure", "Drama"],
       "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
       "image": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "director": "Ridley Scott",
-      "cast": [
-        "Russell Crowe",
-        "Joaquin Phoenix",
-        "Connie Nielsen"
-      ]
+      "cast": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"]
     },
     {
       "id": "23",
@@ -422,19 +260,11 @@
       "year": 2006,
       "duration": 130,
       "rating": 8.5,
-      "genres": [
-        "Drama",
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Drama", "Mystery", "Thriller"],
       "description": "After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg",
       "director": "Christopher Nolan",
-      "cast": [
-        "Christian Bale",
-        "Hugh Jackman",
-        "Scarlett Johansson"
-      ]
+      "cast": ["Christian Bale", "Hugh Jackman", "Scarlett Johansson"]
     },
     {
       "id": "24",
@@ -442,18 +272,11 @@
       "year": 2014,
       "duration": 106,
       "rating": 8.5,
-      "genres": [
-        "Drama",
-        "Music"
-      ],
+      "genres": ["Drama", "Music"],
       "description": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor.",
       "image": "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "director": "Damien Chazelle",
-      "cast": [
-        "Miles Teller",
-        "J.K. Simmons",
-        "Paul Reiser"
-      ]
+      "cast": ["Miles Teller", "J.K. Simmons", "Paul Reiser"]
     },
     {
       "id": "25",
@@ -461,19 +284,11 @@
       "year": 1994,
       "duration": 88,
       "rating": 8.5,
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Animation", "Adventure", "Drama"],
       "description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
       "image": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
       "director": "Roger Allers",
-      "cast": [
-        "Matthew Broderick",
-        "Jeremy Irons",
-        "James Earl Jones"
-      ]
+      "cast": ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"]
     },
     {
       "id": "26",
@@ -481,19 +296,11 @@
       "year": 1985,
       "duration": 116,
       "rating": 8.5,
-      "genres": [
-        "Adventure",
-        "Comedy",
-        "Sci-Fi"
-      ],
+      "genres": ["Adventure", "Comedy", "Sci-Fi"],
       "description": "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean.",
       "image": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "director": "Robert Zemeckis",
-      "cast": [
-        "Michael J. Fox",
-        "Christopher Lloyd",
-        "Lea Thompson"
-      ]
+      "cast": ["Michael J. Fox", "Christopher Lloyd", "Lea Thompson"]
     },
     {
       "id": "27",
@@ -501,19 +308,11 @@
       "year": 2002,
       "duration": 150,
       "rating": 8.5,
-      "genres": [
-        "Biography",
-        "Drama",
-        "Music"
-      ],
+      "genres": ["Biography", "Drama", "Music"],
       "description": "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.",
       "image": "https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "director": "Roman Polanski",
-      "cast": [
-        "Adrien Brody",
-        "Thomas Kretschmann",
-        "Frank Finlay"
-      ]
+      "cast": ["Adrien Brody", "Thomas Kretschmann", "Frank Finlay"]
     },
     {
       "id": "28",
@@ -521,18 +320,11 @@
       "year": 1991,
       "duration": 137,
       "rating": 8.6,
-      "genres": [
-        "Action",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Sci-Fi"],
       "description": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten-year-old son from a more advanced cyborg.",
       "image": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "director": "James Cameron",
-      "cast": [
-        "Arnold Schwarzenegger",
-        "Linda Hamilton",
-        "Edward Furlong"
-      ]
+      "cast": ["Arnold Schwarzenegger", "Linda Hamilton", "Edward Furlong"]
     },
     {
       "id": "29",
@@ -540,18 +332,11 @@
       "year": 1998,
       "duration": 119,
       "rating": 8.5,
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Crime", "Drama"],
       "description": "A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.",
       "image": "https://m.media-amazon.com/images/M/MV5BZTJhN2FkYWEtMGI0My00YWM4LWI2MjAtM2UwNjY4MTI2ZTQyXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_SX300.jpg",
       "director": "Tony Kaye",
-      "cast": [
-        "Edward Norton",
-        "Edward Furlong",
-        "Beverly D'Angelo"
-      ]
+      "cast": ["Edward Norton", "Edward Furlong", "Beverly D'Angelo"]
     },
     {
       "id": "30",
@@ -559,19 +344,11 @@
       "year": 1999,
       "duration": 189,
       "rating": 8.6,
-      "genres": [
-        "Crime",
-        "Drama",
-        "Fantasy"
-      ],
+      "genres": ["Crime", "Drama", "Fantasy"],
       "description": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
       "image": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg",
       "director": "Frank Darabont",
-      "cast": [
-        "Tom Hanks",
-        "Michael Clarke Duncan",
-        "David Morse"
-      ]
+      "cast": ["Tom Hanks", "Michael Clarke Duncan", "David Morse"]
     },
     {
       "id": "31",
@@ -579,19 +356,11 @@
       "year": 2012,
       "duration": 143,
       "rating": 8,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki.",
       "image": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "director": "Joss Whedon",
-      "cast": [
-        "Robert Downey Jr.",
-        "Chris Evans",
-        "Scarlett Johansson"
-      ]
+      "cast": ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"]
     },
     {
       "id": "32",
@@ -599,19 +368,11 @@
       "year": 2019,
       "duration": 122,
       "rating": 8.4,
-      "genres": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
+      "genres": ["Crime", "Drama", "Thriller"],
       "description": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral.",
       "image": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
       "director": "Todd Phillips",
-      "cast": [
-        "Joaquin Phoenix",
-        "Robert De Niro",
-        "Zazie Beetz"
-      ]
+      "cast": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"]
     },
     {
       "id": "33",
@@ -619,19 +380,11 @@
       "year": 1995,
       "duration": 81,
       "rating": 8.3,
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Animation", "Adventure", "Comedy"],
       "description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
       "image": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg",
       "director": "John Lasseter",
-      "cast": [
-        "Tom Hanks",
-        "Tim Allen",
-        "Don Rickles"
-      ]
+      "cast": ["Tom Hanks", "Tim Allen", "Don Rickles"]
     },
     {
       "id": "34",
@@ -639,19 +392,11 @@
       "year": 2009,
       "duration": 162,
       "rating": 7.9,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy"],
       "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world.",
       "image": "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
       "director": "James Cameron",
-      "cast": [
-        "Sam Worthington",
-        "Zoe Saldana",
-        "Sigourney Weaver"
-      ]
+      "cast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"]
     },
     {
       "id": "35",
@@ -659,18 +404,11 @@
       "year": 2010,
       "duration": 120,
       "rating": 7.8,
-      "genres": [
-        "Biography",
-        "Drama"
-      ],
+      "genres": ["Biography", "Drama"],
       "description": "As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook.",
       "image": "https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "director": "David Fincher",
-      "cast": [
-        "Jesse Eisenberg",
-        "Andrew Garfield",
-        "Justin Timberlake"
-      ]
+      "cast": ["Jesse Eisenberg", "Andrew Garfield", "Justin Timberlake"]
     },
     {
       "id": "36",
@@ -678,19 +416,11 @@
       "year": 2017,
       "duration": 105,
       "rating": 8.4,
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Animation", "Adventure", "Comedy"],
       "description": "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather.",
       "image": "https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@._V1_SX300.jpg",
       "director": "Lee Unkrich",
-      "cast": [
-        "Anthony Gonzalez",
-        "Gael García Bernal",
-        "Benjamin Bratt"
-      ]
+      "cast": ["Anthony Gonzalez", "Gael García Bernal", "Benjamin Bratt"]
     },
     {
       "id": "37",
@@ -698,19 +428,11 @@
       "year": 2014,
       "duration": 99,
       "rating": 8.1,
-      "genres": [
-        "Adventure",
-        "Comedy",
-        "Crime"
-      ],
+      "genres": ["Adventure", "Comedy", "Crime"],
       "description": "A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy.",
       "image": "https://m.media-amazon.com/images/M/MV5BMzM5NjUxOTEyMl5BMl5BanBnXkFtZTgwNjEyMDM0MDE@._V1_SX300.jpg",
       "director": "Wes Anderson",
-      "cast": [
-        "Ralph Fiennes",
-        "F. Murray Abraham",
-        "Mathieu Amalric"
-      ]
+      "cast": ["Ralph Fiennes", "F. Murray Abraham", "Mathieu Amalric"]
     },
     {
       "id": "38",
@@ -718,19 +440,11 @@
       "year": 2015,
       "duration": 120,
       "rating": 8.1,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland.",
       "image": "https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "director": "George Miller",
-      "cast": [
-        "Tom Hardy",
-        "Charlize Theron",
-        "Nicholas Hoult"
-      ]
+      "cast": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]
     },
     {
       "id": "39",
@@ -738,18 +452,11 @@
       "year": 2010,
       "duration": 138,
       "rating": 8.2,
-      "genres": [
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Mystery", "Thriller"],
       "description": "In 1954, a U.S. Marshal investigates the disappearance of a murderer who escaped from a hospital for the criminally insane.",
       "image": "https://m.media-amazon.com/images/M/MV5BYzhiNDkyNzktNTZmYS00ZTBkLTk2MDAtM2U0YjU1MzgxZjgzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "director": "Martin Scorsese",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Emily Mortimer",
-        "Mark Ruffalo"
-      ]
+      "cast": ["Leonardo DiCaprio", "Emily Mortimer", "Mark Ruffalo"]
     },
     {
       "id": "40",
@@ -757,19 +464,11 @@
       "year": 1998,
       "duration": 103,
       "rating": 8.2,
-      "genres": [
-        "Comedy",
-        "Drama",
-        "Sci-Fi"
-      ],
+      "genres": ["Comedy", "Drama", "Sci-Fi"],
       "description": "An insurance salesman discovers his whole life is actually a reality TV show.",
       "image": "https://m.media-amazon.com/images/M/MV5BMDIzODcyY2EtMmY2MC00ZWVlLTgwMzAtMjQwOWUyNmJjNTYyXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
       "director": "Peter Weir",
-      "cast": [
-        "Jim Carrey",
-        "Ed Harris",
-        "Laura Linney"
-      ]
+      "cast": ["Jim Carrey", "Ed Harris", "Laura Linney"]
     },
     {
       "id": "41",
@@ -777,19 +476,11 @@
       "year": 1995,
       "duration": 178,
       "rating": 8.3,
-      "genres": [
-        "Biography",
-        "Drama",
-        "History"
-      ],
+      "genres": ["Biography", "Drama", "History"],
       "description": "Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.",
       "image": "https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "director": "Mel Gibson",
-      "cast": [
-        "Mel Gibson",
-        "Sophie Marceau",
-        "Patrick McGoohan"
-      ]
+      "cast": ["Mel Gibson", "Sophie Marceau", "Patrick McGoohan"]
     },
     {
       "id": "42",
@@ -797,19 +488,11 @@
       "year": 1992,
       "duration": 99,
       "rating": 8.3,
-      "genres": [
-        "Crime",
-        "Drama",
-        "Thriller"
-      ],
+      "genres": ["Crime", "Drama", "Thriller"],
       "description": "When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.",
       "image": "https://m.media-amazon.com/images/M/MV5BZmExNmEwYWItYmQzOS00YjA5LTk2MjktZjEyZDE1Y2QxNjA1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "director": "Quentin Tarantino",
-      "cast": [
-        "Harvey Keitel",
-        "Tim Roth",
-        "Michael Madsen"
-      ]
+      "cast": ["Harvey Keitel", "Tim Roth", "Michael Madsen"]
     },
     {
       "id": "43",
@@ -817,19 +500,11 @@
       "year": 1993,
       "duration": 127,
       "rating": 8.2,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_SX300.jpg",
       "director": "Steven Spielberg",
-      "cast": [
-        "Sam Neill",
-        "Laura Dern",
-        "Jeff Goldblum"
-      ]
+      "cast": ["Sam Neill", "Laura Dern", "Jeff Goldblum"]
     },
     {
       "id": "44",
@@ -837,18 +512,11 @@
       "year": 2001,
       "duration": 135,
       "rating": 8.2,
-      "genres": [
-        "Biography",
-        "Drama"
-      ],
+      "genres": ["Biography", "Drama"],
       "description": "After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.",
       "image": "https://m.media-amazon.com/images/M/MV5BMzcwYWFkYzktZjAzNC00OGY1LWI4YTgtNzc5MzVjMDVmNjY0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "director": "Ron Howard",
-      "cast": [
-        "Russell Crowe",
-        "Ed Harris",
-        "Jennifer Connelly"
-      ]
+      "cast": ["Russell Crowe", "Ed Harris", "Jennifer Connelly"]
     },
     {
       "id": "45",
@@ -856,19 +524,11 @@
       "year": 2003,
       "duration": 100,
       "rating": 8.2,
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Animation", "Adventure", "Comedy"],
       "description": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
-      "image": "https://m.media-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+      "image": "https://vignette.wikia.nocookie.net/disney/images/0/0d/FindingNemo.png/revision/latest?cb=20150504060157&path-prefix=es",
       "director": "Andrew Stanton",
-      "cast": [
-        "Albert Brooks",
-        "Ellen DeGeneres",
-        "Alexander Gould"
-      ]
+      "cast": ["Albert Brooks", "Ellen DeGeneres", "Alexander Gould"]
     },
     {
       "id": "46",
@@ -876,19 +536,11 @@
       "year": 2013,
       "duration": 180,
       "rating": 8.2,
-      "genres": [
-        "Biography",
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Biography", "Crime", "Drama"],
       "description": "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime and corruption.",
       "image": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg",
       "director": "Martin Scorsese",
-      "cast": [
-        "Leonardo DiCaprio",
-        "Jonah Hill",
-        "Margot Robbie"
-      ]
+      "cast": ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie"]
     },
     {
       "id": "47",
@@ -896,19 +548,11 @@
       "year": 2005,
       "duration": 132,
       "rating": 8.2,
-      "genres": [
-        "Action",
-        "Drama",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Drama", "Sci-Fi"],
       "description": "In a future British tyranny, a shadowy freedom fighter plots to overthrow it with the help of a young woman.",
       "image": "https://m.media-amazon.com/images/M/MV5BOTI5ODc3NzExNV5BMl5BanBnXkFtZTcwNzYxNzQzMw@@._V1_SX300.jpg",
       "director": "James McTeigue",
-      "cast": [
-        "Hugo Weaving",
-        "Natalie Portman",
-        "Rupert Graves"
-      ]
+      "cast": ["Hugo Weaving", "Natalie Portman", "Rupert Graves"]
     },
     {
       "id": "48",
@@ -916,19 +560,11 @@
       "year": 1979,
       "duration": 147,
       "rating": 8.4,
-      "genres": [
-        "Drama",
-        "Mystery",
-        "War"
-      ],
+      "genres": ["Drama", "Mystery", "War"],
       "description": "A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMDdhODg0MjYtYzBiOS00ZmI5LWEwZGYtZDEyNDU4MmQyNzFjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+      "image": "https://th.bing.com/th/id/R.2dffb3cf74a5d9c94c737c9d4873bed9?rik=JHztV9dim2IUhw&riu=http%3a%2f%2fcdn.collider.com%2fwp-content%2fuploads%2f2019%2f07%2fapocalypse-now-final-cut-imax-poster.jpg&ehk=CzJFTzD03CTZIBNVlIRhE5GBNAMYt7z5xmZoicrLQxE%3d&risl=&pid=ImgRaw&r=0",
       "director": "Francis Ford Coppola",
-      "cast": [
-        "Martin Sheen",
-        "Marlon Brando",
-        "Robert Duvall"
-      ]
+      "cast": ["Martin Sheen", "Marlon Brando", "Robert Duvall"]
     },
     {
       "id": "49",
@@ -936,18 +572,11 @@
       "year": 1980,
       "duration": 146,
       "rating": 8.4,
-      "genres": [
-        "Drama",
-        "Horror"
-      ],
+      "genres": ["Drama", "Horror"],
       "description": "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence.",
       "image": "https://m.media-amazon.com/images/M/MV5BZWFlYmY2MGEtZjVkYS00YzU4LTg0YjQtYzY1ZGE3NTA5NGQxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "director": "Stanley Kubrick",
-      "cast": [
-        "Jack Nicholson",
-        "Shelley Duvall",
-        "Danny Lloyd"
-      ]
+      "cast": ["Jack Nicholson", "Shelley Duvall", "Danny Lloyd"]
     },
     {
       "id": "50",
@@ -955,19 +584,11 @@
       "year": 2003,
       "duration": 120,
       "rating": 8.4,
-      "genres": [
-        "Action",
-        "Drama",
-        "Mystery"
-      ],
+      "genres": ["Action", "Drama", "Mystery"],
       "description": "After being kidnapped and imprisoned for fifteen years, Oh Dae-Su is released, only to find that he must find his captor in five days.",
       "image": "https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_SX300.jpg",
       "director": "Park Chan-wook",
-      "cast": [
-        "Choi Min-sik",
-        "Yoo Ji-tae",
-        "Kang Hye-jeong"
-      ]
+      "cast": ["Choi Min-sik", "Yoo Ji-tae", "Kang Hye-jeong"]
     },
     {
       "id": "51",
@@ -975,21 +596,13 @@
       "year": 2023,
       "duration": 180,
       "rating": 8.3,
-      "genres": [
-        "Biography",
-        "Drama",
-        "History"
-      ],
+      "genres": ["Biography", "Drama", "History"],
       "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
       "image": "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg",
       "featured": true,
       "director": "Christopher Nolan",
-      "cast": [
-        "Cillian Murphy",
-        "Emily Blunt",
-        "Matt Damon"
-      ]
+      "cast": ["Cillian Murphy", "Emily Blunt", "Matt Damon"]
     },
     {
       "id": "52",
@@ -997,21 +610,13 @@
       "year": 2023,
       "duration": 114,
       "rating": 6.9,
-      "genres": [
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "description": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
       "image": "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
       "featured": false,
       "director": "Greta Gerwig",
-      "cast": [
-        "Margot Robbie",
-        "Ryan Gosling",
-        "Issa Rae"
-      ]
+      "cast": ["Margot Robbie", "Ryan Gosling", "Issa Rae"]
     },
     {
       "id": "53",
@@ -1019,21 +624,13 @@
       "year": 2024,
       "duration": 166,
       "rating": 8.5,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
       "image": "https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
       "featured": true,
       "director": "Denis Villeneuve",
-      "cast": [
-        "Timothée Chalamet",
-        "Zendaya",
-        "Rebecca Ferguson"
-      ]
+      "cast": ["Timothée Chalamet", "Zendaya", "Rebecca Ferguson"]
     },
     {
       "id": "54",
@@ -1041,21 +638,13 @@
       "year": 2022,
       "duration": 176,
       "rating": 7.8,
-      "genres": [
-        "Action",
-        "Crime",
-        "Drama"
-      ],
+      "genres": ["Action", "Crime", "Drama"],
       "description": "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
       "image": "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg",
       "featured": false,
       "director": "Matt Reeves",
-      "cast": [
-        "Robert Pattinson",
-        "Zoë Kravitz",
-        "Jeffrey Wright"
-      ]
+      "cast": ["Robert Pattinson", "Zoë Kravitz", "Jeffrey Wright"]
     },
     {
       "id": "55",
@@ -1063,21 +652,13 @@
       "year": 2022,
       "duration": 139,
       "rating": 7.8,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy"],
       "description": "An aging Chinese immigrant is swept up in an insane adventure, where she alone can save the world by exploring other universes connecting with the lives she could have led.",
       "image": "https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTQtNmQ1OS00NjZlLWIyMTgtYzk5Y2M3ZDVmMDk1XkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/iQkQUGwQodlon6BxQQN5SP0RAUC.jpg",
       "featured": false,
       "director": "Daniel Kwan, Daniel Scheinert",
-      "cast": [
-        "Michelle Yeoh",
-        "Stephanie Hsu",
-        "Ke Huy Quan"
-      ]
+      "cast": ["Michelle Yeoh", "Stephanie Hsu", "Ke Huy Quan"]
     },
     {
       "id": "56",
@@ -1085,20 +666,13 @@
       "year": 2022,
       "duration": 130,
       "rating": 8.2,
-      "genres": [
-        "Action",
-        "Drama"
-      ],
+      "genres": ["Action", "Drama"],
       "description": "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission.",
       "image": "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg",
       "featured": false,
       "director": "Joseph Kosinski",
-      "cast": [
-        "Tom Cruise",
-        "Miles Teller",
-        "Jennifer Connelly"
-      ]
+      "cast": ["Tom Cruise", "Miles Teller", "Jennifer Connelly"]
     },
     {
       "id": "57",
@@ -1106,21 +680,13 @@
       "year": 2023,
       "duration": 140,
       "rating": 8.6,
-      "genres": [
-        "Animation",
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Animation", "Action", "Adventure"],
       "description": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
       "image": "https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
       "featured": false,
       "director": "Joaquim Dos Santos, Kemp Powers, Justin K. Thompson",
-      "cast": [
-        "Shameik Moore",
-        "Hailee Steinfeld",
-        "Brian Tyree Henry"
-      ]
+      "cast": ["Shameik Moore", "Hailee Steinfeld", "Brian Tyree Henry"]
     },
     {
       "id": "58",
@@ -1128,21 +694,13 @@
       "year": 2023,
       "duration": 169,
       "rating": 7.7,
-      "genres": [
-        "Action",
-        "Crime",
-        "Thriller"
-      ],
+      "genres": ["Action", "Crime", "Thriller"],
       "description": "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDgx._V1_SX300.jpg",
+      "image": "https://www.themoviedb.org/t/p/original/kQWMSvX3wXfNPZV4a9zrNjYKcwp.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
       "featured": false,
       "director": "Chad Stahelski",
-      "cast": [
-        "Keanu Reeves",
-        "Donnie Yen",
-        "Bill Skarsgård"
-      ]
+      "cast": ["Keanu Reeves", "Donnie Yen", "Bill Skarsgård"]
     },
     {
       "id": "59",
@@ -1150,21 +708,13 @@
       "year": 2024,
       "duration": 128,
       "rating": 7.8,
-      "genres": [
-        "Action",
-        "Comedy",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Comedy", "Sci-Fi"],
       "description": "Deadpool is offered a place in the Marvel Cinematic Universe by the Time Variance Authority, but instead recruits a variant of Wolverine to save his universe from extinction.",
       "image": "https://m.media-amazon.com/images/I/81IXDOFmY-L._AC_SX342_.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/9l1eZiJHmhr5jIlthMdJN5WYoff.jpg",
       "featured": true,
       "director": "Shawn Levy",
-      "cast": [
-        "Ryan Reynolds",
-        "Hugh Jackman",
-        "Emma Corrin"
-      ]
+      "cast": ["Ryan Reynolds", "Hugh Jackman", "Emma Corrin"]
     },
     {
       "id": "60",
@@ -1172,21 +722,13 @@
       "year": 2024,
       "duration": 96,
       "rating": 7.6,
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Animation", "Adventure", "Comedy"],
       "description": "Follow Riley, in her teenage years, encountering new emotions.",
       "image": "https://m.media-amazon.com/images/I/81QQ0Yu2CfL._AC_SY300_SX300_QL70_ML2_.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/p5kpFS0P3lIwzwzHBOULQovNWyj.jpg",
       "featured": false,
       "director": "Kelsey Mann",
-      "cast": [
-        "Amy Poehler",
-        "Maya Hawke",
-        "Kensington Tallman"
-      ]
+      "cast": ["Amy Poehler", "Maya Hawke", "Kensington Tallman"]
     },
     {
       "id": "61",
@@ -1194,21 +736,13 @@
       "year": 2024,
       "duration": 160,
       "rating": 7.7,
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Musical"
-      ],
+      "genres": ["Drama", "Fantasy", "Musical"],
       "description": "The story of how a green-skinned woman framed by the Wizard of Oz becomes the Wicked Witch of the West. The first of a two-part feature film adaptation of the Broadway musical.",
       "image": "https://m.media-amazon.com/images/I/81okPW7u3VL._AC_UY327_FMwebp_QL65_.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/c5Tqxeo1UpBvnAc3csUm7j3hlQl.jpg",
       "featured": true,
       "director": "Jon M. Chu",
-      "cast": [
-        "Cynthia Erivo",
-        "Ariana Grande",
-        "Jonathan Bailey"
-      ]
+      "cast": ["Cynthia Erivo", "Ariana Grande", "Jonathan Bailey"]
     },
     {
       "id": "62",
@@ -1216,21 +750,13 @@
       "year": 2024,
       "duration": 148,
       "rating": 6.9,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Action", "Adventure", "Drama"],
       "description": "After his home is conquered by the tyrannical emperors who now lead Rome, Lucius is forced to enter the Colosseum and must look to his past to find strength to return the glory of Rome to its people.",
       "image": "https://m.media-amazon.com/images/I/81UPtAx07ML._AC_UY327_FMwebp_QL65_.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/2iVJABdKGL6TmiVFC6Ih3Y4Lwt3.jpg",
       "featured": false,
       "director": "Ridley Scott",
-      "cast": [
-        "Paul Mescal",
-        "Denzel Washington",
-        "Pedro Pascal"
-      ]
+      "cast": ["Paul Mescal", "Denzel Washington", "Pedro Pascal"]
     },
     {
       "id": "63",
@@ -1238,21 +764,13 @@
       "year": 2024,
       "duration": 100,
       "rating": 7,
-      "genres": [
-        "Animation",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Animation", "Adventure", "Comedy"],
       "description": "After receiving an unexpected call from her wayfinding ancestors, Moana must journey to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.",
-      "image": "https://m.media-amazon.com/images/M/MV5BNjMxOGM5ODktMWJhZi00YWI1LTk3NGYtZWNjNGE2ZDg1Y2JhXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.lZwO1U3aP-AdBI1A53-RdwHaK-?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://image.tmdb.org/t/p/original/tElnmtQ6yz1PjN1kePNl8yMSb59.jpg",
       "featured": false,
       "director": "David G. Derrick Jr., Jason Hand, Dana Ledoux Miller",
-      "cast": [
-        "Auli'i Cravalho",
-        "Dwayne Johnson",
-        "Temuera Morrison"
-      ]
+      "cast": ["Auli'i Cravalho", "Dwayne Johnson", "Temuera Morrison"]
     },
     {
       "id": "64",
@@ -1260,21 +778,13 @@
       "year": 2024,
       "duration": 99,
       "rating": 6.8,
-      "genres": [
-        "Horror",
-        "Sci-Fi",
-        "Thriller"
-      ],
+      "genres": ["Horror", "Sci-Fi", "Thriller"],
       "description": "Experience the day the world went quiet.",
-      "image": "https://m.media-amazon.com/images/M/MV5BYWNlN2U0NTEtMGFkNS00YTI2LThjODItYzhjYTJjMjI4MGVkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg",
+      "image": "https://tse2.mm.bing.net/th/id/OIP.6W66p7OGb6ybkUtkqRWXMQHaK-?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://image.tmdb.org/t/p/original/2RVcJbWFmICRDsVxRI8F5xRmRsK.jpg",
       "featured": false,
       "director": "Michael Sarnoski",
-      "cast": [
-        "Lupita Nyong'o",
-        "Joseph Quinn",
-        "Alex Wolff"
-      ]
+      "cast": ["Lupita Nyong'o", "Joseph Quinn", "Alex Wolff"]
     },
     {
       "id": "65",
@@ -1282,21 +792,13 @@
       "year": 2024,
       "duration": 109,
       "rating": 6.2,
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Thriller"
-      ],
+      "genres": ["Action", "Sci-Fi", "Thriller"],
       "description": "Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.",
-      "image": "https://m.media-amazon.com/images/M/MV5BZDMyYWU4NzItZDY0MC00ODE2LTkyYTMtMzNkNDdmYmFhZDg0XkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_SX300.jpg",
+      "image": "https://th.bing.com/th?id=OIF.YOSNxd89sMMg%2B2bbb74H0A&cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://image.tmdb.org/t/p/original/3V4kLQg0kSqPLctI5ziYWabAZYF.jpg",
       "featured": false,
       "director": "Kelly Marcel",
-      "cast": [
-        "Tom Hardy",
-        "Chiwetel Ejiofor",
-        "Juno Temple"
-      ]
+      "cast": ["Tom Hardy", "Chiwetel Ejiofor", "Juno Temple"]
     },
     {
       "id": "66",
@@ -1304,21 +806,13 @@
       "year": 2025,
       "duration": 163,
       "rating": 8.4,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Thriller"
-      ],
+      "genres": ["Action", "Adventure", "Thriller"],
       "description": "After escaping a calamitous train crash, Ethan Hunt and his team face their most impossible mission yet — infiltrating a secure fortress to prevent a catastrophic global threat.",
       "image": "https://tse1.mm.bing.net/th/id/OIP.Z6rSzAS58-ljgqfKdaI1XAHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/11/z-5.jpg",
       "featured": true,
       "director": "Christopher McQuarrie",
-      "cast": [
-        "Tom Cruise",
-        "Hayley Atwell",
-        "Ving Rhames"
-      ]
+      "cast": ["Tom Cruise", "Hayley Atwell", "Ving Rhames"]
     },
     {
       "id": "67",
@@ -1326,21 +820,13 @@
       "year": 2025,
       "duration": 140,
       "rating": 7.8,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "Sam Wilson, the new Captain America, finds himself in an international incident and must discover the mastermind behind a nefarious global conspiracy.",
       "image": "https://tse3.mm.bing.net/th/id/OIP.0wrgt8IiZ4aBe6-lGAkkEwHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://image.tmdb.org/t/p/original/8eifdha9GQeZAkexgtD45546XKx.jpg",
       "featured": true,
       "director": "Julius Onah",
-      "cast": [
-        "Anthony Mackie",
-        "Harrison Ford",
-        "Danny Ramirez"
-      ]
+      "cast": ["Anthony Mackie", "Harrison Ford", "Danny Ramirez"]
     },
     {
       "id": "68",
@@ -1348,21 +834,13 @@
       "year": 2025,
       "duration": 127,
       "rating": 7.5,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "A group of supervillains are recruited by the government to execute dangerous missions in exchange for clemency.",
       "image": "https://th.bing.com/th/id/OIP.4f06pQODXeIZCjWZDu5XrAHaLH?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://image.tmdb.org/t/p/original/bPh3klkWwHOTm4cKD24CN7OFGEr.jpg",
       "featured": false,
       "director": "Jake Schreier",
-      "cast": [
-        "Florence Pugh",
-        "Sebastian Stan",
-        "David Harbour"
-      ]
+      "cast": ["Florence Pugh", "Sebastian Stan", "David Harbour"]
     },
     {
       "id": "69",
@@ -1370,21 +848,13 @@
       "year": 2025,
       "duration": 155,
       "rating": 8.1,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy"],
       "description": "Superman learns to balance his Kryptonian heritage with his human upbringing as he becomes Earth's beacon of hope.",
       "image": "https://tse3.mm.bing.net/th/id/OIP._XHOrA2ksVKSEaB8v8qJFwHaK-?rs=1&pid=ImgDetMain&o=7&rm=3",
       "backgroundImage": "https://4kwallpapers.com/images/wallpapers/superman-2025-3840x2160-20308.jpg",
       "featured": true,
       "director": "James Gunn",
-      "cast": [
-        "David Corenswet",
-        "Rachel Brosnahan",
-        "Nicholas Hoult"
-      ]
+      "cast": ["David Corenswet", "Rachel Brosnahan", "Nicholas Hoult"]
     },
     {
       "id": "70",
@@ -1392,21 +862,13 @@
       "year": 2025,
       "duration": 145,
       "rating": 7.6,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "Marvel's First Family embarks on their first adventure, facing off against threats from another dimension.",
       "image": "https://tse3.mm.bing.net/th/id/OIP.hZi-EAjHBasR_7Gw1T_OCgHaK-?rs=1&pid=ImgDetMain&o=7&rm=3",
-      "backgroundImage": "https://image.tmdb.org/t/p/original/zRnJsZvV4HnDKZFxGpvOT2pLp7t.jpg",
-      "featured": false,
+      "backgroundImage": "https://charcoalcorral.com/wp-content/uploads/2025/01/FantasticFour-FirstSteps-single-630.jpg",
+      "featured": true,
       "director": "Matt Shakman",
-      "cast": [
-        "Pedro Pascal",
-        "Vanessa Kirby",
-        "Joseph Quinn"
-      ]
+      "cast": ["Pedro Pascal", "Vanessa Kirby", "Joseph Quinn"]
     },
     {
       "id": "71",
@@ -1414,16 +876,13 @@
       "year": 2025,
       "duration": 190,
       "rating": 8.7,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "description": "Jake Sully and Neytiri's family ventures to new regions of Pandora, discovering the volcanic Fire Na'vi tribe and facing new threats to their world.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMmI3OThhNjctZmYwOS00YmM3LWFjN2UtYjIxZGFhMGQ4MTcxXkEyXkFqcGdeQXVyMTY3ODkyNDkz._V1_SX300.jpg",
+      "image": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-fire-and-ash-et00474771-1765165894.jpg",
       "backgroundImage": "https://image.tmdb.org/t/p/original/9s9o9RT9Yj6nDuRJjnJm78WFoFl.jpg",
       "featured": true,
       "director": "James Cameron",
+<<<<<<< HEAD
       "cast": [
         "Sam Worthington",
         "Zoe Saldana",
@@ -1441,6 +900,169 @@
       "director": "twg",
       "description": "12312312",
       "image": "https://velog.velcdn.com/images/truit/post/2d5c8d4b-2304-4674-955f-489efda35d54/image.png"
+=======
+      "cast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"]
+    },
+    {
+      "id": "72",
+      "title": "Spirited Away",
+      "year": 2001,
+      "duration": 125,
+      "rating": 8.6,
+      "genres": ["Animation", "Adventure", "Fantasy"],
+      "description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, where humans are changed into beasts.",
+      "image": "https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/AbEC8ovAB6yN9uYYCPPHpEJX1gy.jpg",
+      "featured": true,
+      "director": "Hayao Miyazaki",
+      "cast": ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"]
+    },
+    {
+      "id": "73",
+      "title": "Your Name",
+      "year": 2016,
+      "duration": 106,
+      "rating": 8.4,
+      "genres": ["Animation", "Drama", "Fantasy", "Romance"],
+      "description": "Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?",
+      "image": "https://m.media-amazon.com/images/M/MV5BNGYyNmI3M2YtNzYzZS00OTViLTkxYjAtZDIyZmE1Y2U1ZmQ2XkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/7prYzufdIOy1KCTZKVWpk1Yr7ML.jpg",
+      "featured": false,
+      "director": "Makoto Shinkai",
+      "cast": ["Ryunosuke Kamiki", "Mone Kamishiraishi", "Ryo Narita"]
+    },
+    {
+      "id": "74",
+      "title": "Demon Slayer: Mugen Train",
+      "year": 2020,
+      "duration": 117,
+      "rating": 8.2,
+      "genres": ["Animation", "Action", "Adventure", "Fantasy"],
+      "description": "Tanjiro and his friends embark on a new mission aboard the Mugen Train to investigate the disappearance of over forty people.",
+      "image": "https://tse2.mm.bing.net/th/id/OIP.aeeA0p3tSf3x4FFXEyDseQHaLH?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/6lJURW41rgIAUjKvOIbi2t91R1s.jpg",
+      "featured": false,
+      "director": "Haruo Sotozaki",
+      "cast": ["Natsuki Hanae", "Akari Kito", "Yoshitsugu Matsuoka"]
+    },
+    {
+      "id": "75",
+      "title": "Princess Mononoke",
+      "year": 1997,
+      "duration": 134,
+      "rating": 8.3,
+      "genres": ["Animation", "Adventure", "Fantasy"],
+      "description": "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNGIzY2IzODQtNThmMi00ZDE4LWI5YzAtNzNlZTM1ZjYyYjUyXkEyXkFqcGdeQXVyODEzNjM5OTQ@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/gzlJkVfWV5VEG5xK25cvFGJgkDz.jpg",
+      "featured": false,
+      "director": "Hayao Miyazaki",
+      "cast": ["Yoji Matsuda", "Yuriko Ishida", "Yuko Tanaka"]
+    },
+    {
+      "id": "76",
+      "title": "Howl's Moving Castle",
+      "year": 2004,
+      "duration": 119,
+      "rating": 8.2,
+      "genres": ["Animation", "Adventure", "Fantasy", "Romance"],
+      "description": "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions.",
+      "image": "https://m.media-amazon.com/images/M/MV5BNmM4YTFmMmItMGE3Yy00MmRkLTlmZGEtMzZlOTQzYjk3MzA2XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/6pjZ8txmLEfDVbmV4BHvqKVnHkl.jpg",
+      "featured": false,
+      "director": "Hayao Miyazaki",
+      "cast": ["Chieko Baisho", "Takuya Kimura", "Akihiro Miwa"]
+    },
+    {
+      "id": "77",
+      "title": "A Silent Voice",
+      "year": 2016,
+      "duration": 130,
+      "rating": 8.1,
+      "genres": ["Animation", "Drama", "Romance"],
+      "description": "A young man is ostracized by his classmates after he bullies a deaf girl to the point where she moves away. Years later, he sets off on a path for redemption.",
+      "image": "https://m.media-amazon.com/images/S/pv-target-images/6c34cbba50f21ac5b893abdb7dff3df9e501f954c3ecb95e554db0bd5b23da75.jpg",
+      "backgroundImage": "https://wallpaperaccess.com/full/1084630.png",
+      "featured": false,
+      "director": "Naoko Yamada",
+      "cast": ["Miyu Irino", "Saori Hayami", "Aoi Yuki"]
+    },
+    {
+      "id": "78",
+      "title": "Attack on Titan: Chronicle",
+      "year": 2020,
+      "duration": 120,
+      "rating": 8,
+      "genres": ["Animation", "Action", "Adventure", "Drama"],
+      "description": "A compilation film recapping the first three seasons of Attack on Titan, chronicling humanity's struggle against the Titans.",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.ge_JHJfcX_ERUU5rPUIl-QHaKd?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/3GYuJZhVPmJA8ks1YxcTLhPa0BV.jpg",
+      "featured": false,
+      "director": "Tetsuro Araki",
+      "cast": ["Yuki Kaji", "Marina Inoue", "Yui Ishikawa"]
+    },
+    {
+      "id": "79",
+      "title": "Weathering with You",
+      "year": 2019,
+      "duration": 112,
+      "rating": 7.5,
+      "genres": ["Animation", "Drama", "Fantasy", "Romance"],
+      "description": "A high-school boy who has run away to Tokyo befriends a girl who appears to be able to manipulate the weather.",
+      "image": "https://image.tmdb.org/t/p/original/qgrk7r1fV4IjuoeiGS5HOhXNdLJ.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/qgrk7r2JGJMUdAhQHuD59kLGLBJ.jpg",
+      "featured": false,
+      "director": "Makoto Shinkai",
+      "cast": ["Kotaro Daigo", "Nana Mori", "Tsubasa Honda"]
+    },
+    {
+      "id": "80",
+      "title": "My Neighbor Totoro",
+      "year": 1988,
+      "duration": 86,
+      "rating": 8.1,
+      "genres": ["Animation", "Family", "Fantasy"],
+      "description": "When two girls move to the country to be near their ailing mother, they have adventures with the wondrous forest spirits who live nearby.",
+      "image": "https://m.media-amazon.com/images/M/MV5BYzJjMTYyMjQtZDI0My00ZjE2LTkyNGYtOTllNGQxNDMyZjE0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/fL06WET3d6UKC8ToqCPJUzMAEz4.jpg",
+      "featured": false,
+      "director": "Hayao Miyazaki",
+      "cast": ["Hitoshi Takagi", "Noriko Hidaka", "Chika Sakamoto"]
+    },
+    {
+      "id": "81",
+      "title": "Jujutsu Kaisen 0",
+      "year": 2021,
+      "duration": 105,
+      "rating": 7.8,
+      "genres": ["Animation", "Action", "Fantasy"],
+      "description": "Yuta Okkotsu gains control of an extremely powerful cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School to learn to control his power.",
+      "image": "https://tse1.mm.bing.net/th/id/OIP.gacpN1-ZjmFYMkNCrJGKzgHaLH?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "backgroundImage": "https://image.tmdb.org/t/p/original/3pTwMUEavTzVOh6yLN0aEwR7uSz.jpg",
+      "featured": false,
+      "director": "Sunghoo Park",
+      "cast": ["Megumi Ogata", "Kana Hanazawa", "Yuichi Nakamura"]
+    },
+    {
+      "id": "8a5b",
+      "title": "Stranger Things",
+      "year": 2025,
+      "rating": 8.6,
+      "genres": ["Dark", "Fantasy"],
+      "director": "Matt Duffer",
+      "description": "In 1980s Indiana, a group of young friends witness supernatural forces and secret government exploits. As they search for answers, the children unravel a series of extraordinary mysteries.",
+      "image": "https://bvnwnews.com/wp-content/uploads/2025/12/thumbnail_strangerthings5news.jpg"
+    },
+    {
+      "id": "0055",
+      "title": "1917",
+      "year": 2019,
+      "rating": 8.7,
+      "genres": ["Dark", "Action"],
+      "director": "Sam Mendes",
+      "description": "April 6th, 1917. As an infantry battalion assembles to wage war deep in enemy territory, two soldiers are assigned to race against time and deliver a message that will stop 1,600 men from walking straight into a deadly trap.",
+      "image": "https://upload.wikimedia.org/wikipedia/vi/f/fe/1917_%282019%29_Film_Poster.jpeg"
+>>>>>>> 260039e85ab7e7f10310f80bc22e76f152a1fbb7
     }
   ],
   "users": [
@@ -1458,15 +1080,8 @@
       "email": "john@example.com",
       "password": "password123",
       "role": "user",
-      "id": "2220"
-    },
-    {
-      "userId": 3,
-      "username": "jane_smith",
-      "email": "jane@example.com",
-      "password": "password456",
-      "role": "user",
-      "id": "e4f7"
+      "id": "2220",
+      "status": "active"
     },
     {
       "userId": 4,
@@ -1477,9 +1092,18 @@
       "id": "d2e4"
     },
     {
-      "id": "9c93",
+      "id": "496a",
+      "userId": 6,
+      "username": "hahaha",
+      "email": "hrmana@gmail.com",
+      "password": "123123123saA",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "734c",
       "userId": 5,
-      "username": "CuongDepzai",
+      "username": "Cuongdepzai",
       "email": "vcun2005@gmail.com",
       "password": "123123123sA",
       "role": "user"
@@ -1503,25 +1127,6 @@
       "id": "5752"
     },
     {
-      "watchListId": 2,
-      "userId": 3,
-      "movies": [
-        {
-          "movieId": 3
-        },
-        {
-          "movieId": 4
-        },
-        {
-          "movieId": 6
-        },
-        {
-          "movieId": 8
-        }
-      ],
-      "id": "4822"
-    },
-    {
       "watchListId": 3,
       "userId": 4,
       "movies": [
@@ -1536,41 +1141,83 @@
         },
         {
           "movieId": 68
+        },
+        {
+          "movieId": 4
         }
       ],
       "id": "6b8d"
     },
     {
-      "id": "4c49",
-      "watchListId": 4,
-      "userId": 5,
+      "watchListId": 5,
+      "userId": 1,
       "movies": [
         {
           "movieId": 1
         },
         {
-          "movieId": 1
-        },
-        {
-          "movieId": 1
-        },
-        {
-          "movieId": 69
+          "movieId": 5
         },
         {
           "movieId": 2
         },
         {
-          "movieId": 2
-        },
+          "movieId": 20
+        }
+      ],
+      "id": "cbde"
+    },
+    {
+      "id": "0fb4",
+      "watchListId": 6,
+      "userId": 6,
+      "movies": [
         {
           "movieId": 2
         },
         {
-          "movieId": 1
+          "movieId": 4
+        }
+      ]
+    },
+    {
+      "id": "0787",
+      "watchListId": 7,
+      "userId": 5,
+      "movies": [
+        {
+          "movieId": 2
         },
         {
-          "movieId": 69
+          "movieId": 8
+        },
+        {
+          "movieId": 9
+        }
+      ]
+    },
+    {
+      "id": "5bb4",
+      "watchListId": 5,
+      "userId": 1,
+      "movies": [
+        {
+          "movieId": 6
+        },
+        {
+          "movieId": 2
+        },
+        {
+          "movieId": 4
+        },
+        {
+          "movieId": 67
+        },
+        {
+          "movieId": 9
+        },
+        {
+          "movieId": 14
         }
       ]
     }
@@ -1599,6 +1246,17 @@
         {
           "commentId": "2556",
           "description": "đ",
+          "userId": 5
+        }
+      ]
+    },
+    {
+      "id": "c7fb",
+      "movieId": 2,
+      "comments": [
+        {
+          "commentId": "a9c1",
+          "description": "Phim khá ôk ",
           "userId": 5
         }
       ]

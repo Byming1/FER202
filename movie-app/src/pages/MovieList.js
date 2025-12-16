@@ -5,6 +5,7 @@ import { use, useEffect, useState } from "react";
 import { instance } from "../axios/Axios";
 import FilmCard from "../components/FilmCard";
 import style from "./MovieList.module.css";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MovieList() {
@@ -30,6 +31,11 @@ export default function MovieList() {
         setSearchTerm("");
         setRating(0);
     }
+
+    const navigate = useNavigate();
+    const handleCardClick = (id) => {
+        navigate(`/movie/${id}`);
+    };
 
     // nạp data từ axios, lấy data ban đầu và lấy maxPage
     const fetchMovies = async () => {
@@ -155,13 +161,14 @@ export default function MovieList() {
                     <div style={{ marginTop: "25px", marginBottom: "px" }} className="d-flex justify-content-between">
                         <div>
                             <span className="text-white">Rating: </span>
-                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(0)}>Any</Button>
-                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(7)} active={rating === 7}>7+</Button>
-                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(8)} active={rating === 8}>8+</Button>
-                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => setRating(9)} active={rating === 9}>9+</Button>
+                            <Button variant={rating === 0 ? "danger" : "dark"} style={{ margin: "0px 5px", border: "1px solid black" }} onClick={() => setRating(0)}>Any</Button>
+                            <Button variant={rating === 7 ? "danger" : "dark"} style={{ margin: "0px 5px", border: "1px solid black" }} onClick={() => setRating(7)}>7+</Button>
+                            <Button variant={rating === 8 ? "danger" : "dark"} style={{ margin: "0px 5px", border: "1px solid black" }} onClick={() => setRating(8)}>8+</Button>
+                            <Button variant={rating === 9 ? "danger" : "dark"} style={{ margin: "0px 5px", border: "1px solid black" }} onClick={() => setRating(9)}>9+</Button>
                         </div>
+
                         <div>
-                             <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => reset()}>Reset All Field</Button>
+                            <Button style={{ margin: "0px 5px", backgroundColor: "#0A0A0A", border: "1px solid black" }} onClick={() => reset()}>Reset All Field</Button>
                         </div>
                     </div>
                 </Container>
@@ -173,8 +180,12 @@ export default function MovieList() {
                                 .slice((presentPage - 1) * 10, presentPage * 10)
                                 .map(movie => {
                                     return (
-                                        <div className="col" style={{ flex: '0 0 20%', maxWidth: '20%' }} key={movie.id}>
+                                        <div className="col"
+                                            style={{ flex: '0 0 20%', maxWidth: '20%', cursor: 'pointer' }}
+                                            key={movie.id}
+                                            onClick={() => handleCardClick(movie.id)} >
                                             <FilmCard
+                                                id={movie.id}
                                                 Img={movie.image}
                                                 rating={movie.rating}
                                                 title={movie.title}

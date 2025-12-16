@@ -15,10 +15,14 @@ import FilmCard from "../components/FilmCard";
 
 function FavouritePage() {
   const [favouriteMovies, setFavouriteMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [totalFavourites, setTotalFavourites] = useState(0);
   const [totalRuntime, setTotalRuntime] = useState(0);
   const [avgRating, setAvgRating] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedGenre, setSelectedGenre] = useState("all");
+  const [sortBy, setSortBy] = useState("default");
+  const [searchTerm, setSearchTerm] = useState("");
   const itemsPerPage = 15;
 
   useEffect(() => {
@@ -52,6 +56,7 @@ function FavouritePage() {
         const movies = movieResponses.map((res) => res.data);
 
         setFavouriteMovies(movies);
+        setFilteredMovies(movies);
 
         setTotalFavourites(movies.length);
 
@@ -74,13 +79,43 @@ function FavouritePage() {
     fetchFavouriteMovies();
   }, []);
 
-  const totalPages = Math.ceil(favouriteMovies.length / itemsPerPage);
+  // Filter and sort logic
+  useEffect(() => {
+    let filtered = [...favouriteMovies];
+
+    // Filter by search term
+    if (searchTerm.trim()) {
+      filtered = filtered.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Filter by genre
+    if (selectedGenre !== "all") {
+      filtered = filtered.filter((movie) =>
+        movie.genres.includes(selectedGenre)
+      );
+    }
+
+    // Sort
+    if (sortBy === "name-asc") {
+      filtered.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortBy === "name-desc") {
+      filtered.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sortBy === "rating-low") {
+      filtered.sort((a, b) => a.rating - b.rating);
+    } else if (sortBy === "rating-high") {
+      filtered.sort((a, b) => b.rating - a.rating);
+    }
+
+    setFilteredMovies(filtered);
+    setCurrentPage(1); // Reset to page 1 when filter/sort changes
+  }, [selectedGenre, sortBy, searchTerm, favouriteMovies]);
+
+  const totalPages = Math.ceil(filteredMovies.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentMovies = favouriteMovies.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
+  const currentMovies = filteredMovies.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -262,6 +297,8 @@ function FavouritePage() {
             }}
           >
             <Form.Select
+              value={selectedGenre}
+              onChange={(e) => setSelectedGenre(e.target.value)}
               style={{
                 backgroundColor: "#1C1C1E",
                 borderColor: "#2C2C2E",
@@ -272,15 +309,21 @@ function FavouritePage() {
                 width: "150px",
               }}
             >
-              <option>▼ Filter</option>
-              <option value="1">Drama</option>
-              <option value="2">Horror</option>
-              <option value="3">Comedy</option>
-              <option value="4">Thriller</option>
-              <option value="5">Sci-Fi</option>
+              <option value="all">▼ All Genres</option>
+              <option value="Drama">Drama</option>
+              <option value="Horror">Horror</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Action">Action</option>
+              <option value="Crime">Crime</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Fantasy">Fantasy</option>
             </Form.Select>
 
             <Form.Select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
               variant="outline-light"
               style={{
                 backgroundColor: "#1C1C1E",
@@ -289,15 +332,31 @@ function FavouritePage() {
                 borderRadius: "8px",
                 padding: "8px 20px",
                 fontSize: "0.9rem",
-                width: "150px",
+                width: "180px",
               }}
             >
-              <option>⇅ Sort By</option>
-              <option value="1">Name (a-z)</option>
-              <option value="2">Name (z-a)</option>
-              <option value="3">Rate (low to high)</option>
-              <option value="4">Rate (high to low)</option>
+              <option value="default">⇅ Sort By</option>
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="rating-low">Rating (Low to High)</option>
+              <option value="rating-high">Rating (High to Low)</option>
             </Form.Select>
+
+            <Form.Control
+              type="text"
+              placeholder="Search movies..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                backgroundColor: "#1C1C1E",
+                borderColor: "#2C2C2E",
+                color: "#FFFFFF",
+                borderRadius: "8px",
+                padding: "8px 20px",
+                fontSize: "0.9rem",
+                width: "300px",
+              }}
+            />
           </div>
 
           {favouriteMovies.length === 0 ? (
@@ -316,12 +375,30 @@ function FavouritePage() {
               </h3>
               <p>Start adding movies to your favorites collection!</p>
             </div>
+          ) : filteredMovies.length === 0 ? (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "60px 20px",
+                color: "#8E8E93",
+              }}
+            >
+              <div style={{ fontSize: "4rem", marginBottom: "20px" }}>
+                <i className="bi bi-funnel"></i>
+              </div>
+              <h3 style={{ color: "#FFFFFF", marginBottom: "10px" }}>
+                No Movies Match Your Filter
+              </h3>
+              <p>Try selecting a different genre or sort option</p>
+            </div>
           ) : (
             <>
               <Row xs={2} md={5} className="g-3">
                 {currentMovies.map((movie) => (
                   <Col key={movie.id}>
                     <FilmCard
+                      movie={movie}
+                      id={movie.id}
                       Img={movie.image}
                       rating={movie.rating}
                       title={movie.title}
@@ -333,47 +410,178 @@ function FavouritePage() {
               </Row>
 
               {totalPages > 1 && (
-                <div className="d-flex justify-content-end align-items-center mt-4 gap-3">
+                <div
+                  className="d-flex justify-content-center"
+                  style={{ marginTop: "50px" }}
+                >
                   <Button
-                    variant="outline-light"
-                    onClick={() => handlePageChange(currentPage - 1)}
+                    variant="dark"
+                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
                     style={{
                       backgroundColor: "#1C1C1E",
                       borderColor: "#2C2C2E",
                       color: "#FFFFFF",
                       borderRadius: "8px",
-                      padding: "8px 20px",
-                      fontSize: "0.9rem",
+                      padding: "8px 16px",
+                      margin: "0 5px",
                     }}
                   >
-                    Previous
+                    {"<"}
                   </Button>
 
-                  <span
-                    style={{
-                      color: "#FFFFFF",
-                      fontSize: "1rem",
-                      fontWeight: "500",
-                    }}
-                  >
-                    {currentPage} / {totalPages}
-                  </span>
+                  {currentPage > 2 && (
+                    <>
+                      <Button
+                        variant="dark"
+                        onClick={() => setCurrentPage(1)}
+                        style={{
+                          backgroundColor: "#1C1C1E",
+                          borderColor: "#2C2C2E",
+                          color: "#FFFFFF",
+                          borderRadius: "8px",
+                          padding: "8px 16px",
+                          margin: "0 5px",
+                        }}
+                      >
+                        1
+                      </Button>
+                      {currentPage > 3 && (
+                        <Button
+                          variant="dark"
+                          disabled
+                          style={{
+                            cursor: "default",
+                            backgroundColor: "#1C1C1E",
+                            borderColor: "#2C2C2E",
+                            color: "#FFFFFF",
+                            borderRadius: "8px",
+                            padding: "8px 16px",
+                            margin: "0 5px",
+                          }}
+                        >
+                          ...
+                        </Button>
+                      )}
+                    </>
+                  )}
+
+                  {currentPage > 1 && (
+                    <Button
+                      variant="dark"
+                      onClick={() => setCurrentPage(currentPage - 1)}
+                      style={{
+                        backgroundColor: "#1C1C1E",
+                        borderColor: "#2C2C2E",
+                        color: "#FFFFFF",
+                        borderRadius: "8px",
+                        padding: "8px 16px",
+                        margin: "0 5px",
+                      }}
+                    >
+                      {currentPage - 1}
+                    </Button>
+                  )}
 
                   <Button
-                    variant="outline-light"
-                    onClick={() => handlePageChange(currentPage + 1)}
+                    variant="danger"
+                    style={{
+                      backgroundColor: "#E50914",
+                      borderColor: "#E50914",
+                      borderRadius: "8px",
+                      padding: "8px 16px",
+                      margin: "0 5px",
+                    }}
+                  >
+                    {currentPage}
+                  </Button>
+
+                  {currentPage < totalPages && (
+                    <Button
+                      variant="dark"
+                      onClick={() => setCurrentPage(currentPage + 1)}
+                      style={{
+                        backgroundColor: "#1C1C1E",
+                        borderColor: "#2C2C2E",
+                        color: "#FFFFFF",
+                        borderRadius: "8px",
+                        padding: "8px 16px",
+                        margin: "0 5px",
+                      }}
+                    >
+                      {currentPage + 1}
+                    </Button>
+                  )}
+
+                  {currentPage < totalPages - 1 && (
+                    <Button
+                      variant="dark"
+                      onClick={() => setCurrentPage(currentPage + 2)}
+                      style={{
+                        backgroundColor: "#1C1C1E",
+                        borderColor: "#2C2C2E",
+                        color: "#FFFFFF",
+                        borderRadius: "8px",
+                        padding: "8px 16px",
+                        margin: "0 5px",
+                      }}
+                    >
+                      {currentPage + 2}
+                    </Button>
+                  )}
+
+                  {currentPage < totalPages - 2 && (
+                    <>
+                      {currentPage < totalPages - 3 && (
+                        <Button
+                          variant="dark"
+                          disabled
+                          style={{
+                            cursor: "default",
+                            backgroundColor: "#1C1C1E",
+                            borderColor: "#2C2C2E",
+                            color: "#FFFFFF",
+                            borderRadius: "8px",
+                            padding: "8px 16px",
+                            margin: "0 5px",
+                          }}
+                        >
+                          ...
+                        </Button>
+                      )}
+                      <Button
+                        variant="dark"
+                        onClick={() => setCurrentPage(totalPages)}
+                        style={{
+                          backgroundColor: "#1C1C1E",
+                          borderColor: "#2C2C2E",
+                          color: "#FFFFFF",
+                          borderRadius: "8px",
+                          padding: "8px 16px",
+                          margin: "0 5px",
+                        }}
+                      >
+                        {totalPages}
+                      </Button>
+                    </>
+                  )}
+
+                  <Button
+                    variant="dark"
+                    onClick={() =>
+                      setCurrentPage(Math.min(totalPages, currentPage + 1))
+                    }
                     disabled={currentPage === totalPages}
                     style={{
                       backgroundColor: "#1C1C1E",
                       borderColor: "#2C2C2E",
                       color: "#FFFFFF",
                       borderRadius: "8px",
-                      padding: "8px 20px",
-                      fontSize: "0.9rem",
+                      padding: "8px 16px",
+                      margin: "0 5px",
                     }}
                   >
-                    Next
+                    {">"}
                   </Button>
                 </div>
               )}
